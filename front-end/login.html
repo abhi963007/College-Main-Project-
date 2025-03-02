@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MoneyTracker</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img class="logo" src="images/logo.png" alt="logo" />
+        </div>
+        <ul id="sidemenu" class="menu-list">
+            <div class="icon cancel-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <li><a href="index.html">Home</a></li>
+            <button class="sign-up">
+                <a href="login.html">Sign up</a>
+                <div class="arrow-wrapper">
+                    <div class="arrow"></div>
+                </div>
+            </button>
+        </ul>
+        <div class="icon menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="wrapper">
+            <!-- Login Form -->
+            <form id="login-form">
+                <h2>Login</h2>
+                <div class="input-field">
+                    <input type="text" name="email" required>
+                    <label>Enter your email</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="pwd" required>
+                    <label>Enter your password</label>
+                </div>
+                <div class="forget">
+                    <div class="checkbox-wrapper">
+                    <input type="checkbox" class="ui-checkbox">
+                    <p>Remember me</p>
+                    </div>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" name="submit">Log In</button>
+                <p class="message">Not Registered?<a href="#">Register</a></p>
+            </form>
+            <!-- Registration Form -->
+            <form id="registration-form">
+                <h2>Register</h2>
+                <div class="input-field">
+                    <input type="text" name="name" required>
+                    <label>Enter your name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="email" required>
+                    <label>Enter your email</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="pwd" required>
+                    <label>Enter your password</label>
+                </div>
+                <button type="submit" name="submit">Register</button>
+                <p class="message">Already Registered?<a href="#">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <footer>
+      <p>Copyright 2025 - Money Tracker</p>
+    </footer>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script src="navbar.js"></script>
+    <script>
+        $('.message a').click(function() {
+            $('form').animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+    <script>
+        $('button a').click(function() {
+            $('').animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+</body>
+</html>
