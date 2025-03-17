@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    transition: all ease-in-out 0.2s;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  /* SIGN UP BUTTON */
+  .sign-up {
+    --primary-color: #f8d77a;  
+    --secondary-color: #fff;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    --hover-color: #333333;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 25px;
+    padding: 0.8em 2em;
+    background: var(--primary-color);
+    display: flex;
+    transition: all 0.3s ease;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(248, 215, 122, 0.2);
+  }
+  .sign-up a {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    font-size: 13.3px;
+    margin: 0 5px;
+    color: var(--secondary-color);
+    text-decoration: none; /* Ensure the text has no underline */
+    transition: color 0.2s; /* Optional: smooth color transition */
+  }
+  .sign-up .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sign-up .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  .sign-up .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  .sign-up:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(248, 215, 122, 0.3);
+  }
+  .sign-up:hover .arrow {
+    background: var(--secondary-color);
+  }
+  .sign-up:hover .arrow:before {
+    right: 0;
+  }
+  /* Logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    width: 150px;
+    height: 60px;
+    transition: all 0.3s ease;
+  }
+  .logo-container:hover {
+    transform: scale(1.05);
+  }
+  img.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  nav {
+    font-size: 1.7rem;
+    width: 100%;
+    height: 80px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    z-index: 999;
+    transition: all 0.3s ease;
+  }
+  nav.sticky {
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  nav.hide {
+    transform: translateY(-100%);
+  }
+  nav:hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+  }
+  nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f8d77a;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s ease;
+  }
+  nav ul li a:hover {
+    color: #f8d77a;
+  }
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Adjusted gap */
+  }
+  nav .menu-list {
+    display: inline-flex;
+  }
+  .menu-list li {
+    list-style: none;
+  }
+  .icon {
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+  }
+  .icon:hover {
+    color: yellow;
+    transition: all 0.3s;
+  }
+  .menu-list .cancel-btn {
+    position: absolute;
+    right: 30px;
+    top: 0;
+  }
+  @media (max-width: 868px) {
+    body.disabled {
+        overflow: hidden;
+      }
+    .icon {
+        display: block;
+      }
+      .icon.hide {
+        display: none;
+      }
+      nav {
+        padding: 5px 20px;
+      }
+      nav .menu-list {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        left: -100%;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 40px 0;
+        text-align: center;
+        background: rgba(39, 39, 39, 0.95);
+        backdrop-filter: blur(15px);
+        transition: all 0.3s ease;
+      }
+      nav.show .menu-list {
+        left: 0%;
+      }
+      nav .menu-list li {
+        margin: 10px;
+      }
+      nav .menu-list li a {
+        font-size: 18px;
+        padding: 15px 0;
+      }
+      nav.show .menu-list li a {
+        margin-left: 0px;
+      }
+      .logo-container {
+        width: 120px;
+        height: 50px;
+      }
+  }

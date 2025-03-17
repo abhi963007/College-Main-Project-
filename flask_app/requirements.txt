@@ -1,0 +1,12 @@
+Flask>=2.2.5
+flask-sqlalchemy>=3.0.0
+werkzeug>=2.2.3
+beautifulsoup4>=4.11.1
+google-auth>=2.16.0
+google-auth-oauthlib>=0.8.0
+google-auth-httplib2>=0.1.0
+google-api-python-client>=2.70.0
+pandas>=1.5.3
+boto3>=1.26.84
+pydantic>=2.0.0
+ollama>=0.1.0 
