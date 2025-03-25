@@ -318,7 +318,23 @@ def process_categorized_expenses(categorized_expenses):
     
     # Process each expense
     for expense in categorized_expenses:
-        if isinstance(expense, list) and len(expense) >= 3:
+        if isinstance(expense, dict):
+            # Handle dict format (direct from categorized_expenses.json)
+            category = expense.get('category', 'Other')
+            try:
+                amount = float(expense.get('amount', 0))
+                categories[category] = categories.get(category, 0) + amount
+                
+                # Format the expense for the table
+                categorized_expenses_formatted.append({
+                    'description': str(expense.get('recipient', 'Unknown')),
+                    'category': category,
+                    'amount': amount
+                })
+            except (ValueError, TypeError) as e:
+                app.logger.warning(f"Invalid amount in expense {expense}: {str(e)}")
+        elif isinstance(expense, list) and len(expense) >= 3:
+            # Handle list format (from ollama model)
             category = expense[1]
             try:
                 amount = float(expense[2])
@@ -379,18 +395,17 @@ def create_basic_categorization(transactions):
             
         # Simple categories based on keywords in recipient
         categories = {
-            'Food': ['restaurant', 'food', 'burger', 'pizza', 'cafe', 'eat', 'swiggy', 'zomato'],
-            'Transport': ['uber', 'ola', 'cab', 'auto', 'taxi', 'petrol', 'fuel', 'bus', 'metro', 'train'],
-            'Shopping': ['shop', 'store', 'market', 'mall', 'amazon', 'flipkart', 'myntra'],
-            'Bills': ['bill', 'recharge', 'electricity', 'water', 'gas', 'internet', 'wifi', 'broadband'],
-            'Entertainment': ['movie', 'theatre', 'game', 'netflix', 'prime', 'hotstar', 'subscription'],
+            'Food': ['restaurant', 'food', 'burger', 'pizza', 'cafe', 'eat', 'swiggy', 'zomato', 'strawberry', 'pranavam'],
+            'Transport': ['uber', 'ola', 'cab', 'auto', 'taxi', 'petrol', 'fuel', 'bus', 'metro', 'train', 'parivaram'],
+            'Shopping': ['shop', 'store', 'market', 'mall', 'amazon', 'flipkart', 'myntra', 'toy'],
+            'Bills': ['bill', 'recharge', 'electricity', 'water', 'gas', 'internet', 'wifi', 'broadband', 'google', 'hostinger'],
+            'Entertainment': ['movie', 'theatre', 'game', 'netflix', 'prime', 'hotstar', 'subscription', 'unipin', 'friends'],
             'Health': ['hospital', 'doctor', 'medical', 'medicine', 'pharmacy', 'clinic', 'health'],
             'Education': ['book', 'course', 'class', 'school', 'college', 'education', 'tuition'],
-            'Personal': ['salon', 'spa', 'haircut', 'grooming'],
-            'Home': ['rent', 'maintenance', 'repair', 'furniture', 'decor'],
+            'Personal': ['person', 'friend', 'transfer', 'borrow', 'lend', 'pay', 'anujith', 'abin', 'renjith', 'aswin'],
+            'Home & Tax': ['rent', 'maintenance', 'repair', 'furniture', 'decor', 'tax', 'insurance', 'policybazaar', 'icici'],
             'Travel': ['flight', 'hotel', 'booking', 'holiday', 'vacation', 'trip'],
-            'Tax': ['tax', 'gst', 'income tax', 'cess'],
-            'Finance': ['emi', 'loan', 'interest', 'insurance', 'investment'],
+            'Extra': ['unknown', 'misc', 'other']
         }
         
         # Initialize result
@@ -408,12 +423,15 @@ def create_basic_categorization(transactions):
         for category in categories:
             result['categories'][category] = 0
             
+        # Also initialize 'Other' category
+        result['categories']['Other'] = 0
+            
         # Process each transaction
         categorized_transactions = []
         for tx in transactions:
-            amount = float(tx.get('Amount', 0))
-            recipient = tx.get('Recipient', '').lower()
-            date = tx.get('Date', '')
+            amount = float(tx.get('amount', 0))
+            recipient = tx.get('recipient', '').lower()
+            date = tx.get('date', '')
             
             # Skip invalid transactions
             if amount <= 0 or not recipient or not date:

@@ -7477,3 +7477,658 @@ AttributeError: 'bool' object has no attribute 'lower'
 2025-03-17 20:16:18,477 - root - INFO - Fetch data requested with force_refresh=True
 2025-03-17 20:16:18,477 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
 2025-03-17 20:16:18,477 - root - INFO - Starting Gmail scraper...
+2025-03-17 20:48:46,574 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-17 20:48:46,574 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-17 20:48:46,599 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 20:48:49,713 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 20:48:49,726 - werkzeug - INFO -  * Debugger PIN: 915-184-744
+2025-03-17 20:48:49,859 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\engine\\create.py', reloading
+2025-03-17 20:48:49,884 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\engine\\mock.py', reloading
+2025-03-17 20:48:49,910 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\engine\\cursor.py', reloading
+2025-03-17 20:48:49,946 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\engine\\reflection.py', reloading
+2025-03-17 20:48:49,977 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\engine\\url.py', reloading
+2025-03-17 20:48:50,000 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\pool\\__init__.py', reloading
+2025-03-17 20:48:50,023 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\pool\\impl.py', reloading
+2025-03-17 20:48:50,048 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\pool\\base.py', reloading
+2025-03-17 20:48:50,073 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\ddl.py', reloading
+2025-03-17 20:48:50,128 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\expression.py', reloading
+2025-03-17 20:48:50,164 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\_selectable_constructors.py', reloading
+2025-03-17 20:48:50,196 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\_elements_constructors.py', reloading
+2025-03-17 20:48:50,260 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\dml.py', reloading
+2025-03-17 20:48:50,295 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\_dml_constructors.py', reloading
+2025-03-17 20:48:50,329 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\functions.py', reloading
+2025-03-17 20:48:50,362 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\types.py', reloading
+2025-03-17 20:48:50,399 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\sqltypes.py', reloading
+2025-03-17 20:48:50,443 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlalchemy\\sql\\type_api.py', reloading
+2025-03-17 20:48:50,467 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\sqlparse\\__init__.py', reloading
+2025-03-17 20:48:50,483 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\stack_data\\__init__.py', reloading
+2025-03-17 20:48:50,502 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\statsmodels\\__init__.py', reloading
+2025-03-17 20:48:50,520 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\statsmodels\\_version.py', reloading
+2025-03-17 20:48:50,539 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\__init__.py', reloading
+2025-03-17 20:48:50,592 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\commands\\echo.py', reloading
+2025-03-17 20:48:50,608 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\commands\\logo.py', reloading
+2025-03-17 20:48:50,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\commands\\navigation.py', reloading
+2025-03-17 20:48:50,658 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\navigation\\page.py', reloading
+2025-03-17 20:48:50,694 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\elements\\spinner.py', reloading
+2025-03-17 20:48:50,730 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\commands\\page_config.py', reloading
+2025-03-17 20:48:50,782 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\streamlit\\commands\\execution_control.py', reloading
+2025-03-17 20:48:51,268 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 20:48:54,324 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 20:48:54,338 - werkzeug - INFO -  * Debugger PIN: 915-184-744
+2025-03-17 20:48:55,007 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tbats\\__init__.py', reloading
+2025-03-17 20:48:55,030 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tbats\\bats\\__init__.py', reloading
+2025-03-17 20:48:55,045 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tbats\\bats\\BATS.py', reloading
+2025-03-17 20:48:55,058 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tbats\\tbats\\__init__.py', reloading
+2025-03-17 20:48:55,074 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tbats\\tbats\\TBATS.py', reloading
+2025-03-17 20:48:55,098 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\__init__.py', reloading
+2025-03-17 20:48:55,126 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\retry.py', reloading
+2025-03-17 20:48:55,139 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\nap.py', reloading
+2025-03-17 20:48:55,157 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\stop.py', reloading
+2025-03-17 20:48:55,172 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\wait.py', reloading
+2025-03-17 20:48:55,189 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\before.py', reloading
+2025-03-17 20:48:55,205 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\after.py', reloading
+2025-03-17 20:48:55,223 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\before_sleep.py', reloading
+2025-03-17 20:48:55,239 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tenacity\\_asyncio.py', reloading
+2025-03-17 20:48:55,257 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tensorboard\\__init__.py', reloading
+2025-03-17 20:48:55,281 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tensorboard_data_server\\__init__.py', reloading
+2025-03-17 20:48:55,298 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tensorflow\\__init__.py', reloading
+2025-03-17 20:48:55,457 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tensorflow_estimator\\__init__.py', reloading
+2025-03-17 20:48:55,465 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\tensorflow_io_gcs_filesystem\\__init__.py', reloading
+2025-03-17 20:48:55,487 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\termcolor\\__init__.py', reloading
+2025-03-17 20:48:55,505 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\termcolor\\termcolor.py', reloading
+2025-03-17 20:48:55,520 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\terminado\\__init__.py', reloading
+2025-03-17 20:48:55,533 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\text_unidecode\\__init__.py', reloading
+2025-03-17 20:48:55,849 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 20:48:58,917 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 20:48:58,929 - werkzeug - INFO -  * Debugger PIN: 915-184-744
+2025-03-17 20:48:59,065 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pythonwin\\pywin\\__init__.py', reloading
+2025-03-17 20:49:00,509 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 20:49:03,047 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 20:49:03,060 - werkzeug - INFO -  * Debugger PIN: 915-184-744
+2025-03-17 20:50:21,143 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-17 20:50:21,144 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-17 20:50:21,163 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 20:50:24,071 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 20:50:24,081 - werkzeug - INFO -  * Debugger PIN: 915-184-744
+2025-03-17 20:50:24,292 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET / HTTP/1.1" 200 -
+2025-03-17 20:50:24,485 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/home.css HTTP/1.1" 200 -
+2025-03-17 20:50:24,498 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/home.js HTTP/1.1" 200 -
+2025-03-17 20:50:24,510 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/navbar.js HTTP/1.1" 200 -
+2025-03-17 20:50:24,519 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/images/growth-chart.png HTTP/1.1" 200 -
+2025-03-17 20:50:24,527 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/images/budget-notepad.png HTTP/1.1" 200 -
+2025-03-17 20:50:24,536 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/navbar.css HTTP/1.1" 200 -
+2025-03-17 20:50:24,547 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/images/wallet-magnify-glass.png HTTP/1.1" 200 -
+2025-03-17 20:50:24,552 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:24] "GET /static/images/logo.png HTTP/1.1" 200 -
+2025-03-17 20:50:28,994 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:28] "GET /login.html HTTP/1.1" 200 -
+2025-03-17 20:50:29,037 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:29] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-17 20:50:29,041 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:29] "GET /static/login.css HTTP/1.1" 200 -
+2025-03-17 20:50:29,044 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:29] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-17 20:50:29,047 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-17 20:50:46,584 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:46] "[32mPOST /login.html HTTP/1.1[0m" 302 -
+2025-03-17 20:50:46,617 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:46] "GET /dashboard HTTP/1.1" 200 -
+2025-03-17 20:50:46,671 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:46] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-17 20:50:46,673 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:46] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-17 20:50:46,674 - werkzeug - INFO - 127.0.0.1 - - [17/Mar/2025 20:50:46] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-17 20:50:49,865 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-17 20:50:49,866 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-17 20:50:49,866 - root - INFO - Starting Gmail scraper...
+2025-03-25 00:40:18,911 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 00:40:18,919 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 00:40:18,936 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:40:21,770 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:40:21,778 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 00:40:24,580 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET / HTTP/1.1" 200 -
+2025-03-25 00:40:24,842 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/navbar.css HTTP/1.1" 200 -
+2025-03-25 00:40:24,855 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/home.js HTTP/1.1" 200 -
+2025-03-25 00:40:24,866 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/navbar.js HTTP/1.1" 200 -
+2025-03-25 00:40:24,869 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/images/logo.png HTTP/1.1" 200 -
+2025-03-25 00:40:24,882 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/images/wallet-magnify-glass.png HTTP/1.1" 200 -
+2025-03-25 00:40:24,884 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/images/budget-notepad.png HTTP/1.1" 200 -
+2025-03-25 00:40:24,885 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/images/growth-chart.png HTTP/1.1" 200 -
+2025-03-25 00:40:24,888 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:24] "GET /static/home.css HTTP/1.1" 200 -
+2025-03-25 00:40:28,680 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:28] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 00:40:28,727 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:28] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:40:28,729 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:28] "GET /static/login.css HTTP/1.1" 200 -
+2025-03-25 00:40:28,731 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:28] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:40:28,735 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:28] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:40:42,818 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:42] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 00:40:42,847 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:42] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:40:42,847 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:42] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 00:40:42,850 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:42] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:40:42,851 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:42] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:40:58,356 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:58] "POST /login.html HTTP/1.1" 200 -
+2025-03-25 00:40:58,399 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:58] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 00:40:58,401 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:58] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:40:58,402 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:58] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:40:58,408 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:40:58] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:25,001 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:25] "[32mPOST /register HTTP/1.1[0m" 302 -
+2025-03-25 00:41:25,014 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:25] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 00:41:25,052 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:25] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 00:41:25,053 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:25] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:41:25,056 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:25] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:41:25,059 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:25] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:36,955 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:36] "[32mPOST /login.html HTTP/1.1[0m" 302 -
+2025-03-25 00:41:37,031 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:37] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 00:41:37,091 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:37] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:41:37,092 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:37] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:41:37,094 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:37] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:44,975 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:44] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 00:41:45,024 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:45] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:41:45,026 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:45] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:41:45,029 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:45] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,137 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "GET / HTTP/1.1" 200 -
+2025-03-25 00:41:46,195 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,196 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/home.css HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,199 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,208 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/images/wallet-magnify-glass.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,212 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/images/growth-chart.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,213 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/images/budget-notepad.png HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,216 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/home.js HTTP/1.1[0m" 304 -
+2025-03-25 00:41:46,221 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:41:46] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:41:55,968 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 00:41:55,969 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 00:41:55,969 - root - INFO - Starting Gmail scraper...
+2025-03-25 00:42:15,299 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:42:17,817 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:42:17,826 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 00:42:17,919 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:42:17] "GET /get_progress HTTP/1.1" 200 -
+2025-03-25 00:42:56,853 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 00:42:56,853 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 00:42:56,854 - root - INFO - Starting Gmail scraper...
+2025-03-25 00:45:01,412 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:45:06,697 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:45:06,706 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 00:45:29,563 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\catboost\\__init__.py', reloading
+2025-03-25 00:45:29,820 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\catboost\\core.py', reloading
+2025-03-25 00:45:30,300 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:45:33,960 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:45:33,970 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 00:46:01,159 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\annotated_types.py', reloading
+2025-03-25 00:46:01,160 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\class_validators.py', reloading
+2025-03-25 00:46:01,161 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\color.py', reloading
+2025-03-25 00:46:01,163 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\config.py', reloading
+2025-03-25 00:46:01,164 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\dataclasses.py', reloading
+2025-03-25 00:46:01,165 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\datetime_parse.py', reloading
+2025-03-25 00:46:01,166 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\decorator.py', reloading
+2025-03-25 00:46:01,168 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\env_settings.py', reloading
+2025-03-25 00:46:01,169 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\errors.py', reloading
+2025-03-25 00:46:01,170 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\error_wrappers.py', reloading
+2025-03-25 00:46:01,171 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\fields.py', reloading
+2025-03-25 00:46:01,172 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\generics.py', reloading
+2025-03-25 00:46:01,174 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\json.py', reloading
+2025-03-25 00:46:01,175 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\main.py', reloading
+2025-03-25 00:46:01,176 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\mypy.py', reloading
+2025-03-25 00:46:01,177 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\networks.py', reloading
+2025-03-25 00:46:01,178 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\parse.py', reloading
+2025-03-25 00:46:01,180 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\schema.py', reloading
+2025-03-25 00:46:01,181 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\tools.py', reloading
+2025-03-25 00:46:01,182 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\types.py', reloading
+2025-03-25 00:46:01,184 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\typing.py', reloading
+2025-03-25 00:46:01,185 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\utils.py', reloading
+2025-03-25 00:46:01,186 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\validators.py', reloading
+2025-03-25 00:46:01,188 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\version.py', reloading
+2025-03-25 00:46:01,190 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_hypothesis_plugin.py', reloading
+2025-03-25 00:46:01,191 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\__init__.py', reloading
+2025-03-25 00:46:01,197 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\__init__.py', reloading
+2025-03-25 00:46:01,198 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\__init__.py', reloading
+2025-03-25 00:46:01,199 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\__init__.py', reloading
+2025-03-25 00:46:01,200 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_migration.py', reloading
+2025-03-25 00:46:01,203 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_migration.py', reloading
+2025-03-25 00:46:01,204 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\alias_generators.py', reloading
+2025-03-25 00:46:01,205 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\alias_generators.py', reloading
+2025-03-25 00:46:01,206 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\aliases.py', reloading
+2025-03-25 00:46:01,207 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\aliases.py', reloading
+2025-03-25 00:46:01,207 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\annotated_handlers.py', reloading
+2025-03-25 00:46:01,209 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\annotated_handlers.py', reloading
+2025-03-25 00:46:01,210 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\class_validators.py', reloading
+2025-03-25 00:46:01,210 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\class_validators.py', reloading
+2025-03-25 00:46:01,211 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\color.py', reloading
+2025-03-25 00:46:01,212 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\color.py', reloading
+2025-03-25 00:46:01,213 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\config.py', reloading
+2025-03-25 00:46:01,214 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\config.py', reloading
+2025-03-25 00:46:01,215 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\dataclasses.py', reloading
+2025-03-25 00:46:01,216 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\dataclasses.py', reloading
+2025-03-25 00:46:01,217 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\datetime_parse.py', reloading
+2025-03-25 00:46:01,219 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\datetime_parse.py', reloading
+2025-03-25 00:46:01,220 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\decorator.py', reloading
+2025-03-25 00:46:01,222 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\decorator.py', reloading
+2025-03-25 00:46:01,223 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\env_settings.py', reloading
+2025-03-25 00:46:01,224 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\env_settings.py', reloading
+2025-03-25 00:46:01,225 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\error_wrappers.py', reloading
+2025-03-25 00:46:01,226 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\error_wrappers.py', reloading
+2025-03-25 00:46:01,227 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\errors.py', reloading
+2025-03-25 00:46:01,228 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\errors.py', reloading
+2025-03-25 00:46:01,229 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\fields.py', reloading
+2025-03-25 00:46:01,230 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\fields.py', reloading
+2025-03-25 00:46:01,231 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\functional_serializers.py', reloading
+2025-03-25 00:46:01,231 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\functional_serializers.py', reloading
+2025-03-25 00:46:01,233 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\functional_validators.py', reloading
+2025-03-25 00:46:01,235 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\functional_validators.py', reloading
+2025-03-25 00:46:01,236 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\generics.py', reloading
+2025-03-25 00:46:01,237 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\generics.py', reloading
+2025-03-25 00:46:01,238 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\json.py', reloading
+2025-03-25 00:46:01,239 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\json.py', reloading
+2025-03-25 00:46:01,240 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\json_schema.py', reloading
+2025-03-25 00:46:01,242 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\json_schema.py', reloading
+2025-03-25 00:46:01,242 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\main.py', reloading
+2025-03-25 00:46:01,245 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\main.py', reloading
+2025-03-25 00:46:01,245 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\mypy.py', reloading
+2025-03-25 00:46:01,246 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\mypy.py', reloading
+2025-03-25 00:46:01,247 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\networks.py', reloading
+2025-03-25 00:46:01,249 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\networks.py', reloading
+2025-03-25 00:46:01,249 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\parse.py', reloading
+2025-03-25 00:46:01,250 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\parse.py', reloading
+2025-03-25 00:46:01,253 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\root_model.py', reloading
+2025-03-25 00:46:01,254 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\root_model.py', reloading
+2025-03-25 00:46:01,255 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\schema.py', reloading
+2025-03-25 00:46:01,256 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\schema.py', reloading
+2025-03-25 00:46:01,257 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\tools.py', reloading
+2025-03-25 00:46:01,258 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\tools.py', reloading
+2025-03-25 00:46:01,259 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\type_adapter.py', reloading
+2025-03-25 00:46:01,260 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\type_adapter.py', reloading
+2025-03-25 00:46:01,261 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\types.py', reloading
+2025-03-25 00:46:01,261 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\types.py', reloading
+2025-03-25 00:46:01,263 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\typing.py', reloading
+2025-03-25 00:46:01,264 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\typing.py', reloading
+2025-03-25 00:46:01,265 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\utils.py', reloading
+2025-03-25 00:46:01,266 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\utils.py', reloading
+2025-03-25 00:46:01,267 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\validate_call_decorator.py', reloading
+2025-03-25 00:46:01,270 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\validate_call_decorator.py', reloading
+2025-03-25 00:46:01,271 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\validators.py', reloading
+2025-03-25 00:46:01,272 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\validators.py', reloading
+2025-03-25 00:46:01,273 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\version.py', reloading
+2025-03-25 00:46:01,274 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\version.py', reloading
+2025-03-25 00:46:01,276 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\warnings.py', reloading
+2025-03-25 00:46:01,277 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\warnings.py', reloading
+2025-03-25 00:46:01,278 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_config.py', reloading
+2025-03-25 00:46:01,279 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_core_metadata.py', reloading
+2025-03-25 00:46:01,279 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\__init__.py', reloading
+2025-03-25 00:46:01,281 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\__init__.py', reloading
+2025-03-25 00:46:01,282 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_config.py', reloading
+2025-03-25 00:46:01,283 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_config.py', reloading
+2025-03-25 00:46:01,286 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_core_metadata.py', reloading
+2025-03-25 00:46:01,286 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_core_metadata.py', reloading
+2025-03-25 00:46:01,288 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_core_utils.py', reloading
+2025-03-25 00:46:01,289 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_core_utils.py', reloading
+2025-03-25 00:46:01,289 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_dataclasses.py', reloading
+2025-03-25 00:46:01,290 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_dataclasses.py', reloading
+2025-03-25 00:46:01,292 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_decorators.py', reloading
+2025-03-25 00:46:01,293 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_decorators.py', reloading
+2025-03-25 00:46:01,294 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_decorators_v1.py', reloading
+2025-03-25 00:46:01,295 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_decorators_v1.py', reloading
+2025-03-25 00:46:01,296 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_discriminated_union.py', reloading
+2025-03-25 00:46:01,297 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_discriminated_union.py', reloading
+2025-03-25 00:46:01,298 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_docs_extraction.py', reloading
+2025-03-25 00:46:01,299 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_docs_extraction.py', reloading
+2025-03-25 00:46:01,300 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_fields.py', reloading
+2025-03-25 00:46:01,302 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_fields.py', reloading
+2025-03-25 00:46:01,303 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_forward_ref.py', reloading
+2025-03-25 00:46:01,304 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_forward_ref.py', reloading
+2025-03-25 00:46:01,305 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_generate_schema.py', reloading
+2025-03-25 00:46:01,306 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_generate_schema.py', reloading
+2025-03-25 00:46:01,307 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_generics.py', reloading
+2025-03-25 00:46:01,308 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_generics.py', reloading
+2025-03-25 00:46:01,310 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_git.py', reloading
+2025-03-25 00:46:01,310 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_git.py', reloading
+2025-03-25 00:46:01,311 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_import_utils.py', reloading
+2025-03-25 00:46:01,312 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_import_utils.py', reloading
+2025-03-25 00:46:01,314 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_import_utils.py', reloading
+2025-03-25 00:46:01,315 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_internal_dataclass.py', reloading
+2025-03-25 00:46:01,316 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_internal_dataclass.py', reloading
+2025-03-25 00:46:01,317 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_known_annotated_metadata.py', reloading
+2025-03-25 00:46:01,317 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_known_annotated_metadata.py', reloading
+2025-03-25 00:46:01,319 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_mock_val_ser.py', reloading
+2025-03-25 00:46:01,321 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_mock_val_ser.py', reloading
+2025-03-25 00:46:01,322 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_model_construction.py', reloading
+2025-03-25 00:46:01,323 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_model_construction.py', reloading
+2025-03-25 00:46:01,324 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_namespace_utils.py', reloading
+2025-03-25 00:46:01,325 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_namespace_utils.py', reloading
+2025-03-25 00:46:01,326 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_repr.py', reloading
+2025-03-25 00:46:01,328 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_repr.py', reloading
+2025-03-25 00:46:01,329 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_schema_generation_shared.py', reloading
+2025-03-25 00:46:01,329 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_schema_generation_shared.py', reloading
+2025-03-25 00:46:01,330 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_serializers.py', reloading
+2025-03-25 00:46:01,332 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_serializers.py', reloading
+2025-03-25 00:46:01,333 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_signature.py', reloading
+2025-03-25 00:46:01,335 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_signature.py', reloading
+2025-03-25 00:46:01,336 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_std_types_schema.py', reloading
+2025-03-25 00:46:01,337 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_std_types_schema.py', reloading
+2025-03-25 00:46:01,339 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_typing_extra.py', reloading
+2025-03-25 00:46:01,340 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_typing_extra.py', reloading
+2025-03-25 00:46:01,340 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_utils.py', reloading
+2025-03-25 00:46:01,343 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_utils.py', reloading
+2025-03-25 00:46:01,344 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_validate_call.py', reloading
+2025-03-25 00:46:01,345 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_validate_call.py', reloading
+2025-03-25 00:46:01,346 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_validators.py', reloading
+2025-03-25 00:46:01,347 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\_internal\\_validators.py', reloading
+2025-03-25 00:46:01,347 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\class_validators.py', reloading
+2025-03-25 00:46:01,349 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\config.py', reloading
+2025-03-25 00:46:01,349 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\copy_internals.py', reloading
+2025-03-25 00:46:01,351 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\__init__.py', reloading
+2025-03-25 00:46:01,352 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\__init__.py', reloading
+2025-03-25 00:46:01,353 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\class_validators.py', reloading
+2025-03-25 00:46:01,354 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\class_validators.py', reloading
+2025-03-25 00:46:01,356 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\config.py', reloading
+2025-03-25 00:46:01,356 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\config.py', reloading
+2025-03-25 00:46:01,358 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\copy_internals.py', reloading
+2025-03-25 00:46:01,359 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\copy_internals.py', reloading
+2025-03-25 00:46:01,360 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\decorator.py', reloading
+2025-03-25 00:46:01,361 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\decorator.py', reloading
+2025-03-25 00:46:01,362 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\json.py', reloading
+2025-03-25 00:46:01,363 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\json.py', reloading
+2025-03-25 00:46:01,364 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\parse.py', reloading
+2025-03-25 00:46:01,365 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\parse.py', reloading
+2025-03-25 00:46:01,366 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\tools.py', reloading
+2025-03-25 00:46:01,367 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\deprecated\\tools.py', reloading
+2025-03-25 00:46:01,368 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\experimental\\pipeline.py', reloading
+2025-03-25 00:46:01,370 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\experimental\\__init__.py', reloading
+2025-03-25 00:46:01,371 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\experimental\\__init__.py', reloading
+2025-03-25 00:46:01,372 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\experimental\\__init__.py', reloading
+2025-03-25 00:46:01,373 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\experimental\\pipeline.py', reloading
+2025-03-25 00:46:01,374 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\experimental\\pipeline.py', reloading
+2025-03-25 00:46:01,375 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\_loader.py', reloading
+2025-03-25 00:46:01,375 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\_schema_validator.py', reloading
+2025-03-25 00:46:01,377 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\__init__.py', reloading
+2025-03-25 00:46:01,377 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\__init__.py', reloading
+2025-03-25 00:46:01,378 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\__init__.py', reloading
+2025-03-25 00:46:01,378 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\_loader.py', reloading
+2025-03-25 00:46:01,379 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\_loader.py', reloading
+2025-03-25 00:46:01,380 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\_schema_validator.py', reloading
+2025-03-25 00:46:01,380 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\plugin\\_schema_validator.py', reloading
+2025-03-25 00:46:01,381 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\annotated_types.py', reloading
+2025-03-25 00:46:01,381 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\class_validators.py', reloading
+2025-03-25 00:46:01,382 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\_hypothesis_plugin.py', reloading
+2025-03-25 00:46:01,383 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\__init__.py', reloading
+2025-03-25 00:46:01,384 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\__init__.py', reloading
+2025-03-25 00:46:01,384 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\__init__.py', reloading
+2025-03-25 00:46:01,386 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\_hypothesis_plugin.py', reloading
+2025-03-25 00:46:01,387 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\_hypothesis_plugin.py', reloading
+2025-03-25 00:46:01,388 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\annotated_types.py', reloading
+2025-03-25 00:46:01,389 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\annotated_types.py', reloading
+2025-03-25 00:46:01,390 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\class_validators.py', reloading
+2025-03-25 00:46:01,391 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\class_validators.py', reloading
+2025-03-25 00:46:01,391 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\color.py', reloading
+2025-03-25 00:46:01,392 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\color.py', reloading
+2025-03-25 00:46:01,393 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\config.py', reloading
+2025-03-25 00:46:01,394 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\config.py', reloading
+2025-03-25 00:46:01,394 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\dataclasses.py', reloading
+2025-03-25 00:46:01,395 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\dataclasses.py', reloading
+2025-03-25 00:46:01,396 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\datetime_parse.py', reloading
+2025-03-25 00:46:01,397 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\datetime_parse.py', reloading
+2025-03-25 00:46:01,398 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\decorator.py', reloading
+2025-03-25 00:46:01,399 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\decorator.py', reloading
+2025-03-25 00:46:01,400 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\env_settings.py', reloading
+2025-03-25 00:46:01,401 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\env_settings.py', reloading
+2025-03-25 00:46:01,403 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\error_wrappers.py', reloading
+2025-03-25 00:46:01,404 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\error_wrappers.py', reloading
+2025-03-25 00:46:01,405 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\errors.py', reloading
+2025-03-25 00:46:01,405 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\errors.py', reloading
+2025-03-25 00:46:01,406 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\fields.py', reloading
+2025-03-25 00:46:01,407 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\fields.py', reloading
+2025-03-25 00:46:01,408 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\generics.py', reloading
+2025-03-25 00:46:01,409 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\generics.py', reloading
+2025-03-25 00:46:01,410 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\json.py', reloading
+2025-03-25 00:46:01,410 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\json.py', reloading
+2025-03-25 00:46:01,411 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\main.py', reloading
+2025-03-25 00:46:01,412 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\main.py', reloading
+2025-03-25 00:46:01,413 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\mypy.py', reloading
+2025-03-25 00:46:01,414 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\mypy.py', reloading
+2025-03-25 00:46:01,414 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\networks.py', reloading
+2025-03-25 00:46:01,415 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\networks.py', reloading
+2025-03-25 00:46:01,416 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\parse.py', reloading
+2025-03-25 00:46:01,417 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\parse.py', reloading
+2025-03-25 00:46:01,418 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\schema.py', reloading
+2025-03-25 00:46:01,418 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\schema.py', reloading
+2025-03-25 00:46:01,420 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\tools.py', reloading
+2025-03-25 00:46:01,421 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\tools.py', reloading
+2025-03-25 00:46:01,421 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\types.py', reloading
+2025-03-25 00:46:01,422 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\types.py', reloading
+2025-03-25 00:46:01,423 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\typing.py', reloading
+2025-03-25 00:46:01,424 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\typing.py', reloading
+2025-03-25 00:46:01,425 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\utils.py', reloading
+2025-03-25 00:46:01,426 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\utils.py', reloading
+2025-03-25 00:46:01,426 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\validators.py', reloading
+2025-03-25 00:46:01,427 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\validators.py', reloading
+2025-03-25 00:46:01,427 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\version.py', reloading
+2025-03-25 00:46:01,428 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\pydantic\\v1\\version.py', reloading
+2025-03-25 00:46:02,025 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:46:05,875 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:46:05,885 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 00:47:37,227 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 00:47:37,227 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 00:47:37,254 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:47:40,222 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "GET / HTTP/1.1" 200 -
+2025-03-25 00:47:40,824 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/home.css HTTP/1.1[0m" 304 -
+2025-03-25 00:47:40,838 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/home.js HTTP/1.1[0m" 304 -
+2025-03-25 00:47:40,842 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:47:40,855 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:47:40,860 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:47:40,874 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/images/growth-chart.png HTTP/1.1[0m" 304 -
+2025-03-25 00:47:40,887 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/images/wallet-magnify-glass.png HTTP/1.1[0m" 304 -
+2025-03-25 00:47:40,894 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:40] "[36mGET /static/images/budget-notepad.png HTTP/1.1[0m" 304 -
+2025-03-25 00:47:43,071 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:47:43,105 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 00:47:43,598 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:43] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 00:47:43,672 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:43] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 00:47:43,678 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:43] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:47:43,689 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:43] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:47:43,699 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:43] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:47:56,237 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:56] "[32mPOST /login.html HTTP/1.1[0m" 302 -
+2025-03-25 00:47:56,296 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:56] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 00:47:56,393 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:56] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 00:47:56,396 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:56] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 00:47:56,401 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 00:47:56] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 00:48:01,039 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 00:48:01,040 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 00:48:01,040 - root - INFO - Starting Gmail scraper...
+2025-03-25 00:51:24,174 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 00:51:24,175 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 00:51:24,201 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:51:27,978 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:51:27,992 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 00:54:34,761 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 00:54:34,761 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 00:54:34,781 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 00:54:37,495 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 00:54:37,505 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 01:04:10,891 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 01:04:13,905 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 01:04:13,916 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 01:04:47,339 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask\\sansio\\app.py', reloading
+2025-03-25 01:04:47,385 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask\\sansio\\scaffold.py', reloading
+2025-03-25 01:04:47,436 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask\\templating.py', reloading
+2025-03-25 01:04:47,472 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\jinja2\\__init__.py', reloading
+2025-03-25 01:04:47,500 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\jinja2\\environment.py', reloading
+2025-03-25 01:04:47,584 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask\\helpers.py', reloading
+2025-03-25 01:04:47,612 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\werkzeug\\wrappers\\__init__.py', reloading
+2025-03-25 01:04:47,633 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\werkzeug\\wrappers\\response.py', reloading
+2025-03-25 01:04:47,680 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\werkzeug\\sansio\\response.py', reloading
+2025-03-25 01:04:47,719 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask\\globals.py', reloading
+2025-03-25 01:04:47,744 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask\\json\\__init__.py', reloading
+2025-03-25 01:04:47,767 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask\\wrappers.py', reloading
+2025-03-25 01:04:47,790 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask_sqlalchemy\\__init__.py', reloading
+2025-03-25 01:04:47,813 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\flask_sqlalchemy\\extension.py', reloading
+2025-03-25 01:04:47,861 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\AppData\\Roaming\\Python\\Python311\\site-packages\\werkzeug\\security.py', reloading
+2025-03-25 01:04:48,875 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 01:04:52,227 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 01:04:52,243 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 01:05:16,678 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\flask_app\\app.py', reloading
+2025-03-25 01:05:16,682 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\flask_app\\app.py', reloading
+2025-03-25 01:05:17,509 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 01:05:20,461 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 01:05:20,469 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 01:05:27,061 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 01:05:27,061 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 01:05:27,081 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 01:05:29,757 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:05:29] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 01:05:29,939 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:05:29] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 01:05:29,943 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:05:29] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 01:05:29,943 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:05:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 01:05:30,047 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 01:05:30,062 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 01:05:34,238 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 01:05:34,238 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 01:05:34,239 - root - INFO - Starting Gmail scraper...
+2025-03-25 01:07:57,386 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "GET / HTTP/1.1" 200 -
+2025-03-25 01:07:57,638 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 01:07:57,647 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/home.js HTTP/1.1[0m" 304 -
+2025-03-25 01:07:57,655 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 01:07:57,676 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 01:07:57,679 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/home.css HTTP/1.1[0m" 304 -
+2025-03-25 01:07:57,720 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/images/budget-notepad.png HTTP/1.1[0m" 304 -
+2025-03-25 01:07:57,723 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/images/growth-chart.png HTTP/1.1[0m" 304 -
+2025-03-25 01:07:57,730 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:07:57] "[36mGET /static/images/wallet-magnify-glass.png HTTP/1.1[0m" 304 -
+2025-03-25 01:08:01,282 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:01] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 01:08:01,330 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:01] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 01:08:01,335 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:01] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 01:08:01,336 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:01] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 01:08:01,337 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:01] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 01:08:13,152 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:13] "[32mPOST /login.html HTTP/1.1[0m" 302 -
+2025-03-25 01:08:13,181 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:13] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 01:08:13,246 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:13] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 01:08:13,249 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:13] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 01:08:13,251 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:08:13] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 01:15:30,004 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 01:15:30,004 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 01:15:30,024 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 01:15:33,059 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 01:15:33,070 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 01:15:37,287 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:15:37] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 01:15:37,422 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:15:37] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 01:15:37,443 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:15:37] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 01:15:37,453 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:15:37] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 01:19:23,123 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 01:19:23,124 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 01:19:23,146 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 01:19:25,995 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 01:19:26,004 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 01:19:26,329 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:19:26] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 01:19:26,524 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:19:26] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 01:19:26,543 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:19:26] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 01:19:26,547 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 01:19:26] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 07:55:59,815 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\Gmail_Scrap\\scraper.py', reloading
+2025-03-25 07:55:59,841 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\model\\write_sheets.py', reloading
+2025-03-25 07:55:59,861 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\model\\read_keep.py', reloading
+2025-03-25 07:55:59,899 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\model\\init.py', reloading
+2025-03-25 07:55:59,910 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\model\\error_handler.py', reloading
+2025-03-25 07:55:59,942 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\Gmail_Scrap\\config.py', reloading
+2025-03-25 07:55:59,960 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ABHIRAM\\Desktop\\project\\flask_app\\app.py', reloading
+2025-03-25 07:56:03,456 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 07:56:15,724 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 07:56:15,762 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 08:06:16,666 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 08:06:16,667 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 08:06:16,712 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 08:06:23,220 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 08:06:23,232 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 08:06:23,472 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:06:23] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 08:06:23,765 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:06:23] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 08:06:23,780 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:06:23] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 08:06:23,782 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:06:23] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 08:08:16,408 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:08:16] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 08:08:16,493 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:08:16] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 08:08:16,498 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:08:16] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 08:08:16,501 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 08:08:16] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 08:08:24,887 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 08:08:24,889 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 08:08:24,892 - root - INFO - Starting Gmail scraper...
+2025-03-25 11:01:55,973 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 11:01:55,974 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 11:01:56,023 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 11:02:00,584 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 11:02:00,625 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 11:02:04,484 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:04] "GET / HTTP/1.1" 200 -
+2025-03-25 11:02:04,872 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:04] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 11:02:04,890 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:04] "[36mGET /static/home.js HTTP/1.1[0m" 304 -
+2025-03-25 11:02:04,908 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:04] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 11:02:04,911 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:04] "[36mGET /static/images/growth-chart.png HTTP/1.1[0m" 304 -
+2025-03-25 11:02:04,922 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:04] "[36mGET /static/images/wallet-magnify-glass.png HTTP/1.1[0m" 304 -
+2025-03-25 11:02:04,986 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:04] "[36mGET /static/images/budget-notepad.png HTTP/1.1[0m" 304 -
+2025-03-25 11:02:05,005 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:05] "[36mGET /static/home.css HTTP/1.1[0m" 304 -
+2025-03-25 11:02:05,009 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:05] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 11:02:09,585 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:09] "[33mGET /images/logoCoin.png HTTP/1.1[0m" 404 -
+2025-03-25 11:02:24,441 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:24] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 11:02:24,547 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:24] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 11:02:24,556 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:24] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 11:02:24,565 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:24] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 11:02:24,570 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:24] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 11:02:24,752 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-25 11:02:45,283 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:45] "[32mPOST /login.html HTTP/1.1[0m" 302 -
+2025-03-25 11:02:45,348 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:45] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 11:02:45,456 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:45] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 11:02:45,461 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:45] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 11:02:45,465 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 11:02:45] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 11:02:58,044 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 11:02:58,045 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 11:02:58,047 - root - INFO - Starting Gmail scraper...
+2025-03-25 13:03:25,239 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 13:03:25,240 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 13:03:25,281 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 13:03:30,062 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 13:03:30,131 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 13:03:31,682 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:31] "GET / HTTP/1.1" 200 -
+2025-03-25 13:03:32,180 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/images/wallet-magnify-glass.png HTTP/1.1[0m" 304 -
+2025-03-25 13:03:32,191 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 13:03:32,197 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/home.css HTTP/1.1[0m" 304 -
+2025-03-25 13:03:32,213 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 13:03:32,216 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/images/growth-chart.png HTTP/1.1[0m" 304 -
+2025-03-25 13:03:32,231 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/home.js HTTP/1.1[0m" 304 -
+2025-03-25 13:03:32,235 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 13:03:32,238 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:32] "[36mGET /static/images/budget-notepad.png HTTP/1.1[0m" 304 -
+2025-03-25 13:03:33,083 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:03:33] "[33mGET /images/logoCoin.png HTTP/1.1[0m" 404 -
+2025-03-25 13:04:53,781 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:04:53] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 13:04:53,885 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:04:53] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 13:04:53,888 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:04:53] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 13:04:53,893 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:04:53] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 13:04:53,896 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:04:53] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 13:04:54,171 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:04:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-25 13:05:06,886 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:05:06] "[32mPOST /login.html HTTP/1.1[0m" 302 -
+2025-03-25 13:05:06,944 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:05:06] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 13:05:07,053 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:05:07] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 13:05:07,058 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:05:07] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 13:05:07,063 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 13:05:07] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 13:05:19,452 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 13:05:19,453 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 13:05:19,454 - root - INFO - Starting Gmail scraper...
+2025-03-25 15:19:19,612 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-25 15:19:19,613 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 15:19:19,645 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-25 15:19:23,836 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 15:19:23,850 - werkzeug - INFO -  * Debugger PIN: 399-273-710
+2025-03-25 15:19:30,000 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "GET / HTTP/1.1" 200 -
+2025-03-25 15:19:30,866 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 15:19:30,879 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/home.js HTTP/1.1[0m" 304 -
+2025-03-25 15:19:30,889 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 15:19:30,896 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 15:19:30,903 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/images/wallet-magnify-glass.png HTTP/1.1[0m" 304 -
+2025-03-25 15:19:30,913 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/home.css HTTP/1.1[0m" 304 -
+2025-03-25 15:19:30,921 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/images/budget-notepad.png HTTP/1.1[0m" 304 -
+2025-03-25 15:19:30,922 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:30] "[36mGET /static/images/growth-chart.png HTTP/1.1[0m" 304 -
+2025-03-25 15:19:31,404 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:31] "[33mGET /images/logoCoin.png HTTP/1.1[0m" 404 -
+2025-03-25 15:19:52,260 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:52] "GET /login.html HTTP/1.1" 200 -
+2025-03-25 15:19:52,364 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:52] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-03-25 15:19:52,365 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:52] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 15:19:52,374 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:52] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 15:19:52,377 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:52] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 15:19:52,486 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:19:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-25 15:20:28,937 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:20:28] "[32mPOST /login.html HTTP/1.1[0m" 302 -
+2025-03-25 15:20:29,004 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:20:29] "GET /dashboard HTTP/1.1" 200 -
+2025-03-25 15:20:29,119 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:20:29] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+2025-03-25 15:20:29,123 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:20:29] "[36mGET /static/navbar.js HTTP/1.1[0m" 304 -
+2025-03-25 15:20:29,129 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 15:20:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-03-25 15:21:46,349 - root - INFO - Fetch data requested with force_refresh=True
+2025-03-25 15:21:46,352 - root - DEBUG - Progress update: Initializing Gmail scraper... - 5%
+2025-03-25 15:21:46,354 - root - INFO - Starting Gmail scraper...
