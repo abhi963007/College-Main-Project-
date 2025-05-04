@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #444;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .filter-form {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .filter-form input, .filter-form button {
+            padding: 8px;
+            margin-right: 10px;
+        }
+        .filter-form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+        }
+        .filter-form button:hover {
+            background-color: #45a049;
+        }
+        .summary {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .transactions {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .transactions th, .transactions td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .transactions th {
+            background-color: #f2f2f2;
+        }
+        .transactions tr:hover {
+            background-color: #f5f5f5;
+        }
+        .amount {
+            text-align: right;
+            font-weight: bold;
+        }
+        .status-completed {
+            color: green;
+        }
+        .status-pending {
+            color: orange;
+        }
+        .status-failed {
+            color: red;
+        }
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Transaction History</h1>
+        
+        <div class="filter-form">
+            <form action="/transactions" method="get">
+                <label for="start_date">From:</label>
+                <input type="date" id="start_date" name="start_date" value="{{ start_date }}">
+                
+                <label for="end_date">To:</label>
+                <input type="date" id="end_date" name="end_date" value="{{ end_date }}">
+                
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+        
+        <div class="summary">
+            <p><strong>Transactions:</strong> {{ count }}</p>
+            <p><strong>Total Amount:</strong> Rs. {{ "%.2f"|format(total_amount) }}</p>
+            <p><strong>Period:</strong> {{ start_date }} to {{ end_date }}</p>
+        </div>
+        
+        {% if transactions %}
+        <table class="transactions">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Recipient</th>
+                    <th>Transaction ID</th>
+                    <th>Status</th>
+                    <th>Amount (Rs.)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tx in transactions %}
+                <tr>
+                    <td>{{ tx.date }}</td>
+                    <td>{{ tx.recipient }}</td>
+                    <td>{{ tx.transaction_id }}</td>
+                    <td class="status-{{ tx.status|lower }}">{{ tx.status }}</td>
+                    <td class="amount">{{ "%.2f"|format(tx.amount) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Simple pagination example -->
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">&raquo;</a>
+        </div>
+        {% else %}
+        <p>No transactions found for the selected date range.</p>
+        {% endif %}
+    </div>
+</body>
+</html> 

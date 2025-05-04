@@ -1,0 +1,149 @@
+{
+  "name": "Transaction API Endpoint",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "transactions",
+        "options": {
+          "responseMode": "responseNode"
+        }
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ],
+      "webhookId": "transactions-api"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "query": "from:no-reply@phonepe.com subject:\"Transaction Details\" newer_than:60d",
+        "includeAttachments": false,
+        "limit": 100,
+        "options": {
+          "returnFullEmail": true
+        }
+      },
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [
+        460,
+        300
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "// Extract transaction details from emails\nconst transactions = [];\n\nfor (const item of $input.all()) {\n  const email = item.json;\n  \n  // Extract data using regex patterns\n  const amountMatch = email.body.match(/Rs\\.(\\s*)(\\d+(,\\d+)*(\\.\\d+)?)/i);\n  const recipientMatch = email.body.match(/paid to\\s*([^<]+)/i);\n  const transactionIdMatch = email.body.match(/Transaction ID\\s*:\\s*([A-Z0-9]+)/i);\n  const statusMatch = email.body.match(/Status\\s*:\\s*([A-Za-z]+)/i);\n  const dateMatch = email.body.match(/Date\\s*:\\s*([^<]+)/i);\n  \n  if (amountMatch && recipientMatch && transactionIdMatch) {\n    // Clean up amount by removing commas\n    const cleanAmount = amountMatch[2].replace(/,/g, '');\n    \n    // Parse the date into a proper date object\n    let txDate;\n    if (dateMatch) {\n      try {\n        txDate = new Date(dateMatch[1].trim());\n      } catch (e) {\n        txDate = new Date(email.date);\n      }\n    } else {\n      txDate = new Date(email.date);\n    }\n    \n    transactions.push({\n      transaction_id: transactionIdMatch[1],\n      amount: parseFloat(cleanAmount),\n      recipient: recipientMatch[1].trim(),\n      status: statusMatch ? statusMatch[1] : 'Unknown',\n      date: txDate.toISOString().split('T')[0], // Format as YYYY-MM-DD\n      email_id: email.id\n    });\n  }\n}\n\n// Deduplicate transactions based on transaction_id\nconst uniqueTransactions = [];\nconst seenIds = new Set();\n\nfor (const tx of transactions) {\n  if (!seenIds.has(tx.transaction_id)) {\n    seenIds.add(tx.transaction_id);\n    uniqueTransactions.push(tx);\n  }\n}\n\nreturn [{ json: { transactions: uniqueTransactions } }];"
+      },
+      "name": "Extract Transactions",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Get the webhook query parameters\nconst startDateParam = $node.Webhook.json.query?.start_date;\nconst endDateParam = $node.Webhook.json.query?.end_date;\n\n// Get transactions from previous node\nconst input = $input.first().json;\nconst transactions = input.transactions || [];\n\nlet filteredTransactions = transactions;\n\n// Filter by date if parameters are provided\nif (startDateParam && endDateParam) {\n  const startDate = new Date(startDateParam);\n  const endDate = new Date(endDateParam);\n  \n  // Add one day to end date to include the end date in results (end of day)\n  endDate.setDate(endDate.getDate() + 1);\n  \n  filteredTransactions = transactions.filter(transaction => {\n    const txDate = new Date(transaction.date);\n    return txDate >= startDate && txDate <= endDate;\n  });\n}\n\nreturn [{ json: { \n  transactions: filteredTransactions,\n  total: filteredTransactions.length,\n  start_date: startDateParam || null,\n  end_date: endDateParam || null,\n  timestamp: new Date().toISOString()\n}}];"
+      },
+      "name": "Filter By Date",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        900,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "={{$json}}",
+        "options": {
+          "jsonQuery": ""
+        }
+      },
+      "name": "Respond To Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Extract Transactions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Transactions": {
+      "main": [
+        [
+          {
+            "node": "Filter By Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter By Date": {
+      "main": [
+        [
+          {
+            "node": "Respond To Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveManualExecutions": true,
+    "callerIds": []
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "api"
+    },
+    {
+      "name": "transactions"
+    }
+  ],
+  "versionId": "7a82c554-9e10-4b3a-b7a2-e5f2d9d0c6a9"
+} 

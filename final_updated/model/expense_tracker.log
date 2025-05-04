@@ -1,0 +1,379 @@
+2025-03-13 12:12:04,988 - INFO - Sample of 3 expenses: [{'amount': 25.0, 'description': 'GOOGLE INDIA DIGITAL SERVICES PVT LTD'}, {'amount': 750.0, 'description': 'UNIPIN'}, {'amount': 200.0, 'description': 'PARIVARAM TTC'}]
+2025-03-13 12:12:04,989 - INFO - Categories: ['Home & Tax', 'Transport', 'Grocery + Essentials', 'Essential Clothes & Books', 'Extra', 'Health']
+2025-03-13 12:12:25,003 - ERROR - Batch processing error: 
+2025-03-13 12:12:45,017 - ERROR - Batch processing error: 
+2025-03-13 12:12:47,544 - ERROR - Error in categorization: Server disconnected without sending a response.
+2025-03-13 12:12:47,545 - ERROR - Error in categorization: Server disconnected without sending a response.
+2025-03-13 12:12:47,545 - ERROR - Error in categorization: Server disconnected without sending a response.
+2025-03-13 12:14:22,347 - INFO - Sample of 3 expenses: [{'amount': 25.0, 'description': 'GOOGLE INDIA DIGITAL SERVICES PVT LTD'}, {'amount': 750.0, 'description': 'UNIPIN'}, {'amount': 200.0, 'description': 'PARIVARAM TTC'}]
+2025-03-13 12:14:22,347 - INFO - Categories: ['Home & Tax', 'Transport', 'Grocery + Essentials', 'Essential Clothes & Books', 'Extra', 'Health']
+2025-03-13 12:14:22,348 - INFO - Processing batch 1/11
+2025-03-13 12:17:19,354 - INFO - Retrying Ollama connection in 2 seconds...
+2025-03-13 12:17:25,422 - INFO - Retrying Ollama connection in 2 seconds...
+2025-03-13 12:17:31,477 - INFO - Ollama server is not running. Starting it now...
+2025-03-13 12:17:31,477 - INFO - Starting Ollama server...
+2025-03-13 12:17:33,556 - INFO - Ollama server is now running
+2025-03-13 12:17:34,708 - INFO - Sample of 3 expenses: [{'amount': 25.0, 'description': 'GOOGLE INDIA DIGITAL SERVICES PVT LTD'}, {'amount': 750.0, 'description': 'UNIPIN'}, {'amount': 200.0, 'description': 'PARIVARAM TTC'}]
+2025-03-13 12:17:34,708 - INFO - Categories: ['Home & Tax', 'Transport', 'Grocery + Essentials', 'Essential Clothes & Books', 'Extra', 'Health']
+2025-03-13 12:17:34,709 - INFO - Processing batch 1/11 (9.1%)
+2025-03-13 12:17:34,841 - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\Desktop\frame work\model\init.py", line 323, in main
+    categorized_expenses = categorize_expenses(expenses, categories)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\Desktop\frame work\model\init.py", line 152, in categorize_expenses
+    spinner = Halo.get_spinner()
+              ^^^^^^^^^^^^^^^^
+AttributeError: type object 'Halo' has no attribute 'get_spinner'
+2025-03-13 12:18:16,265 - INFO - Sample of 3 expenses: [{'amount': 25.0, 'description': 'GOOGLE INDIA DIGITAL SERVICES PVT LTD'}, {'amount': 750.0, 'description': 'UNIPIN'}, {'amount': 200.0, 'description': 'PARIVARAM TTC'}]
+2025-03-13 12:18:16,265 - INFO - Categories: ['Home & Tax', 'Transport', 'Grocery + Essentials', 'Essential Clothes & Books', 'Extra', 'Health']
+2025-03-13 12:18:16,267 - INFO - Processing batch 1/11 (9.1%)
+2025-03-13 12:19:59,781 - INFO - Retrying Ollama connection in 2 seconds...
+2025-03-13 12:20:05,850 - INFO - Retrying Ollama connection in 2 seconds...
+2025-03-13 12:20:11,923 - INFO - Ollama server is not running. Starting it now...
+2025-03-13 12:20:11,923 - INFO - Starting Ollama server...
+2025-03-13 12:20:13,984 - INFO - Ollama server is now running
+2025-03-13 12:20:15,039 - INFO - Sample of 3 expenses: [{'amount': 25.0, 'description': 'GOOGLE INDIA DIGITAL SERVICES PVT LTD'}, {'amount': 750.0, 'description': 'UNIPIN'}, {'amount': 200.0, 'description': 'PARIVARAM TTC'}]
+2025-03-13 12:20:15,039 - INFO - Categories: ['Home & Tax', 'Transport', 'Grocery + Essentials', 'Essential Clothes & Books', 'Extra', 'Health']
+2025-03-13 12:20:15,040 - INFO - Processing batch 1/11 (9.1%)
+2025-03-13 12:23:23,531 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:23:23,534 - INFO - Batch processed in 188.49 seconds
+2025-03-13 12:23:23,536 - INFO - Processing batch 2/11 (18.2%)
+2025-03-13 12:24:32,725 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:24:32,727 - INFO - Batch processed in 69.19 seconds
+2025-03-13 12:24:32,728 - INFO - Processing batch 3/11 (27.3%)
+2025-03-13 12:25:45,652 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:25:45,653 - INFO - Batch processed in 72.92 seconds
+2025-03-13 12:25:45,656 - INFO - Processing batch 4/11 (36.4%)
+2025-03-13 12:27:02,193 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:27:02,194 - INFO - Batch processed in 76.54 seconds
+2025-03-13 12:27:02,196 - INFO - Processing batch 5/11 (45.5%)
+2025-03-13 12:28:06,964 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:28:06,965 - INFO - Batch processed in 64.77 seconds
+2025-03-13 12:28:06,966 - INFO - Processing batch 6/11 (54.5%)
+2025-03-13 12:29:38,803 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:29:38,804 - INFO - Batch processed in 91.84 seconds
+2025-03-13 12:29:38,807 - INFO - Processing batch 7/11 (63.6%)
+2025-03-13 12:30:49,328 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:30:49,329 - INFO - Batch processed in 70.52 seconds
+2025-03-13 12:30:49,331 - INFO - Processing batch 8/11 (72.7%)
+2025-03-13 12:32:06,322 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:32:06,323 - INFO - Batch processed in 76.99 seconds
+2025-03-13 12:32:06,325 - INFO - Processing batch 9/11 (81.8%)
+2025-03-13 12:33:21,055 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:33:21,056 - INFO - Batch processed in 74.73 seconds
+2025-03-13 12:33:21,058 - INFO - Processing batch 10/11 (90.9%)
+2025-03-13 12:34:34,146 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:34:34,147 - INFO - Batch processed in 73.09 seconds
+2025-03-13 12:34:34,149 - INFO - Processing batch 11/11 (100.0%)
+2025-03-13 12:35:29,198 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-03-13 12:35:29,199 - INFO - Batch processed in 55.05 seconds
+2025-03-13 12:35:33,339 - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Program Files\Python311\Lib\http\client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Program Files\Python311\Lib\http\client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python311\Lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python311\Lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Program Files\Python311\Lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D98AB38D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/update_dashboard (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D98AB38D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\Desktop\frame work\model\init.py", line 350, in main
+    send_to_dashboard(categorized_expenses)
+  File "C:\Users\ABHIRAM\Desktop\frame work\model\init.py", line 269, in send_to_dashboard
+    response = requests.post(dashboard_url, json={"expenses": categorized_expenses})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/update_dashboard (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D98AB38D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-13 12:39:29,393 - INFO - Sample of 3 expenses: [{'amount': 25.0, 'description': 'GOOGLE INDIA DIGITAL SERVICES PVT LTD'}, {'amount': 750.0, 'description': 'UNIPIN'}, {'amount': 200.0, 'description': 'PARIVARAM TTC'}]
+2025-03-13 12:39:29,393 - INFO - Categories: ['Home & Tax', 'Transport', 'Grocery + Essentials', 'Essential Clothes & Books', 'Extra', 'Health']
+2025-03-13 12:39:29,395 - INFO - Using cached results for all expenses
+2025-03-13 12:39:33,551 - WARNING - Could not connect to the Flask app. Make sure it's running at http://localhost:5000
+2025-03-13 12:39:33,555 - INFO - Saved categorized expenses to C:\Users\ABHIRAM\Desktop\frame work\model\categorized_expenses.json for later use
+2025-03-13 13:06:35,107 - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 410, in _render_frame
+    self._write(output)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 205, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 210, in write_plain_text
+    self.wrapped.write(text[start:end])
+  File "C:\Program Files\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u280b' in position 1: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\Desktop\frame work\flask_app\..\model\init.py", line 323, in main
+    spinner.start('Reading expenses from CSV')
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 498, in start
+    self._render_frame()
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 412, in _render_frame
+    self._write(encode_utf_8_text(output))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 199, in write_and_convert
+    text = self.convert_osc(text)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 261, in convert_osc
+    for match in self.ANSI_OSC_RE.finditer(text):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot use a string pattern on a bytes-like object
+2025-03-13 13:20:29,476 - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 410, in _render_frame
+    self._write(output)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 205, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 210, in write_plain_text
+    self.wrapped.write(text[start:end])
+  File "C:\Program Files\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u280b' in position 1: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\Desktop\frame work\flask_app\..\model\init.py", line 369, in main
+    spinner.start('Reading expenses from CSV')
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 498, in start
+    self._render_frame()
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 412, in _render_frame
+    self._write(encode_utf_8_text(output))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 199, in write_and_convert
+    text = self.convert_osc(text)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 261, in convert_osc
+    for match in self.ANSI_OSC_RE.finditer(text):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot use a string pattern on a bytes-like object
+2025-03-13 13:20:49,073 - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 410, in _render_frame
+    self._write(output)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 205, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 210, in write_plain_text
+    self.wrapped.write(text[start:end])
+  File "C:\Program Files\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u280b' in position 1: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\Desktop\frame work\flask_app\..\model\init.py", line 369, in main
+    spinner.start('Reading expenses from CSV')
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 498, in start
+    self._render_frame()
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 412, in _render_frame
+    self._write(encode_utf_8_text(output))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 199, in write_and_convert
+    text = self.convert_osc(text)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 261, in convert_osc
+    for match in self.ANSI_OSC_RE.finditer(text):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot use a string pattern on a bytes-like object
+2025-03-13 13:25:59,470 - ERROR - Error reading CSV file: could not convert string to float: 'GOOGLE INDIA DIGITAL SERVICES PVT LTD'
+2025-03-13 13:26:06,634 - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 410, in _render_frame
+    self._write(output)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 205, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 210, in write_plain_text
+    self.wrapped.write(text[start:end])
+  File "C:\Program Files\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u280b' in position 1: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\Desktop\frame work\flask_app\..\model\init.py", line 370, in main
+    spinner.start('Reading expenses from CSV')
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 498, in start
+    self._render_frame()
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 412, in _render_frame
+    self._write(encode_utf_8_text(output))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 199, in write_and_convert
+    text = self.convert_osc(text)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 261, in convert_osc
+    for match in self.ANSI_OSC_RE.finditer(text):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot use a string pattern on a bytes-like object
+2025-03-13 13:29:27,933 - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 410, in _render_frame
+    self._write(output)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 205, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 210, in write_plain_text
+    self.wrapped.write(text[start:end])
+  File "C:\Program Files\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u280b' in position 1: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABHIRAM\Desktop\frame work\flask_app\..\model\init.py", line 382, in main
+    spinner.start('Reading expenses from CSV')
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 498, in start
+    self._render_frame()
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 412, in _render_frame
+    self._write(encode_utf_8_text(output))
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\halo\halo.py", line 305, in _write
+    self._stream.write(s)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 47, in write
+    self.__convertor.write(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 177, in write
+    self.write_and_convert(text)
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 199, in write_and_convert
+    text = self.convert_osc(text)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABHIRAM\AppData\Roaming\Python\Python311\site-packages\colorama\ansitowin32.py", line 261, in convert_osc
+    for match in self.ANSI_OSC_RE.finditer(text):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot use a string pattern on a bytes-like object
+2025-03-13 14:06:12,139 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-03-13 14:06:16,235 - root - INFO - Retrying Ollama connection in 2 seconds...
+2025-03-13 14:06:18,237 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-03-13 14:06:22,333 - root - INFO - Retrying Ollama connection in 2 seconds...
+2025-03-13 14:06:24,337 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-03-13 14:06:28,424 - root - INFO - Ollama server is not running. Starting it now...
+2025-03-13 14:06:28,425 - root - INFO - Starting Ollama server...
+2025-03-13 14:06:28,435 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:11434
+2025-03-13 14:06:30,497 - urllib3.connectionpool - DEBUG - http://localhost:11434 "GET /api/tags HTTP/1.1" 200 1001
+2025-03-13 14:06:30,499 - root - INFO - Ollama server is now running
+2025-03-13 14:06:31,187 - root - INFO - CSV columns: ['Date', 'Recipient', 'Amount', 'Payment Mode', 'Type', 'Txn ID', 'Txn Status', 'Debited From', 'Bank Ref No', 'Message']
+2025-03-13 14:06:31,194 - root - INFO - Read 58 expenses from CSV
+2025-03-13 14:06:31,369 - root - INFO - Sample of 3 expenses: [{'description': 'GOOGLE INDIA DIGITAL SERVICES PVT LTD', 'amount': 25.0, 'date': '2025-02-28'}, {'description': 'UNIPIN', 'amount': 750.0, 'date': '2025-02-22'}, {'description': 'PARIVARAM TTC', 'amount': 200.0, 'date': '2025-02-17'}]
+2025-03-13 14:06:31,369 - root - INFO - Categories: ['Home & Tax', 'Transport', 'Grocery + Essentials', 'Essential Clothes & Books', 'Extra', 'Health']
+2025-03-13 14:06:31,371 - root - INFO - Using cached results for all expenses
+2025-03-13 14:06:31,473 - root - INFO - Saved categorized expenses to C:\Users\ABHIRAM\Desktop\frame work\model\categorized_expenses.json for later use
+2025-03-13 14:06:31,476 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-13 14:06:33,519 - urllib3.connectionpool - DEBUG - http://localhost:5000 "POST /api/update_dashboard HTTP/1.1" 404 207
+2025-03-13 14:06:33,520 - root - ERROR - Failed to send categorized expenses to the dashboard: <!doctype html>
+<html lang=en>
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+

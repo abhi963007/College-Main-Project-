@@ -1,0 +1,20 @@
+{
+  "name": "simple-expense-tracker",
+  "version": "1.0.0",
+  "description": "AI-powered Expense Tracker: automates expense tracking by fetching notes from Google Keep, categorizing expenses using AI (Llama 3), and exporting to Google Sheets. Simplify your monthly budgeting with minimal effort!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofiabaezzato/simple-expense-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sofiabaezzato/simple-expense-tracker/issues"
+  },
+  "homepage": "https://github.com/sofiabaezzato/simple-expense-tracker#readme"
+}

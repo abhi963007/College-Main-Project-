@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MoneyTracker</title>
+    <link rel="stylesheet" href="/static/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Dashboard Theme */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --success-color: #4cc9f0;
+            --warning-color: #f9c74f;
+            --danger-color: #f94144;
+            --text-color: #222;
+            --light-text: #6b7280;
+            --background-color: #f8f9fd;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 2.5rem;
+            --transition-speed: 0.3s;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            line-height: 1.5;
+        }
+        
+        .dashboard-container {
+            padding: var(--spacing-lg);
+            max-width: 1400px;
+            margin: 80px auto 40px;
+        }
+        
+        /* Enhanced Welcome Section */
+        .welcome-section {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('https://cdn-icons-png.flaticon.com/512/2830/2830305.png') no-repeat;
+            background-size: 220px;
+            background-position: 100px -40px;
+            opacity: 0.1;
+        }
+        
+        .welcome-section h1 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+        
+        .welcome-section p {
+            opacity: 0.9;
+            font-size: 1rem;
+            max-width: 80%;
+        }
+        
+        /* Enhanced Summary Cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .card-icon i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .card:nth-child(2) .card-icon {
+            background-color: rgba(252, 163, 17, 0.1);
+        }
+        
+        .card:nth-child(2) .card-icon i {
+            color: var(--warning-color);
+        }
+        
+        .card:nth-child(3) .card-icon {
+            background-color: rgba(76, 201, 240, 0.1);
+        }
+        
+        .card:nth-child(3) .card-icon i {
+            color: var(--success-color);
+        }
+        
+        .card:nth-child(4) .card-icon {
+            background-color: rgba(247, 37, 133, 0.1);
+        }
+        
+        .card:nth-child(4) .card-icon i {
+            color: var(--accent-color);
+        }
+        
+        .card-title {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-trend {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            color: var(--success-color);
+        }
+        
+        .card-trend.down {
+            color: var(--danger-color);
+        }
+        
+        .card-trend i {
+            margin-right: 0.25rem;
+        }
+        
+        /* Enhanced Chart Containers */
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        @media (max-width: 1100px) {
+            .charts {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .chart-container {
+            background-color: var(--card-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            height: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .chart-title, .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+        
+        .chart-title i, .section-title i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .chart-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .chart-options button {
+            background-color: transparent;
+            border: none;
+            color: var(--light-text);
+            cursor: pointer;
+            transition: color var(--transition-speed) ease;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .chart-options button:hover {
+            color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        .chart-wrapper {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        canvas {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        /* Category badge styles */
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+            text-transform: capitalize;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Category badge colors */
+        .category-food, .category-restaurant, .category-dining {
+            background-color: #10b981;
+        }
+        
+        .category-transport, .category-travel, .category-commute {
+            background-color: #3b82f6;
+        }
+        
+        .category-shopping, .category-retail {
+            background-color: #8b5cf6;
+        }
+        
+        .category-bill_payment, .category-utilities {
+            background-color: #f59e0b;
+        }
+        
+        .category-entertainment, .category-leisure {
+            background-color: #ec4899;
+        }
+        
+        .category-health, .category-medical, .category-healthcare {
+            background-color: #06b6d4;
+        }
+        
+        .category-education, .category-learning {
+            background-color: #6366f1;
+        }
+        
+        .category-other, .category-miscellaneous {
+            background-color: #9ca3af;
+        }
+        
+        .category-housing, .category-rent {
+            background-color: #f43f5e;
+        }
+        
+        /* Custom Buttons */
+        .custom-btn {
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all var(--transition-speed) ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 6px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+            box-shadow: 0 4px 6px rgba(249, 65, 68, 0.3);
+        }
+        
+        .btn-danger:hover {
+            background-color: #e03131;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(249, 65, 68, 0.4);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 40px 0;
+            opacity: 0.7;
+        }
+
+        /* Tables and Data Display */
+        .categorized-expenses, .recent-transactions {
+            background-color: var(--card-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+
+        .table-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .export-btn {
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 4px rgba(76, 201, 240, 0.3);
+        }
+
+        .export-btn:hover {
+            background-color: #0ca8c7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(76, 201, 240, 0.4);
+        }
+
+        .export-btn i {
+            font-size: 1rem;
+        }
+
+        /* Modern Table Styling */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        th, td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: rgba(67, 97, 238, 0.08);
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        th:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            opacity: 0.3;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: rgba(99, 102, 241, 0.03);
+        }
+
+        .amount-positive {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .amount-negative {
+            color: var(--danger-color);
+            font-weight: 600;
+        }
+
+        /* Table empty state */
+        .table-empty-state {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--light-text);
+            background-color: rgba(99, 102, 241, 0.02);
+            border-radius: 8px;
+        }
+
+        .table-empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: rgba(67, 97, 238, 0.2);
+        }
+
+        .table-empty-state h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .table-empty-state p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Filter Section Container */
+        .filter-section-container {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .filter-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .filter-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            overflow: hidden;
+        }
+
+        .filter-header {
+            padding: 1.25rem 1.5rem;
+            background-color: rgba(67, 97, 238, 0.03);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+        }
+
+        .filter-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .filter-title i {
+            margin-right: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .filter-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-wrapper label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .date-input {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            width: 100%;
+            transition: border var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .fetch-btn {
+            margin-bottom: 1rem;
+        }
+
+        /* Toggle Switch Styling */
+        .toggle-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .toggle-checkbox {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+            position: absolute;
+        }
+
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 50px;
+            height: 24px;
+            background: #e5e7eb;
+            border-radius: 100px;
+            position: relative;
+            transition: background-color 0.2s;
+        }
+
+        .toggle-label .toggle-inner {
+            width: 20px;
+            height: 20px;
+            border-radius: 45px;
+            background: #fff;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: 0.2s;
+            box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+        }
+
+        .toggle-checkbox:checked + .toggle-label {
+            background: var(--primary-color);
+        }
+
+        .toggle-checkbox:checked + .toggle-label .toggle-inner {
+            left: calc(100% - 2px);
+            transform: translateX(-100%);
+        }
+
+        .toggle-text {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .tooltip-icon {
+            color: var(--light-text);
+            cursor: help;
+        }
+
+        /* Fetch Status Styling */
+        .fetch-status {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .status-message {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        #fetchingMessage {
+            font-size: 1rem;
+            color: var(--text-color);
+            display: none;
+        }
+
+        #errorOccurred {
+            font-size: 1rem;
+            color: var(--danger-color);
+            display: none;
+        }
+
+        .processing-status {
+            background-color: rgba(67, 97, 238, 0.03);
+            border-radius: 10px;
+            padding: var(--spacing-md);
+            display: none;
+        }
+
+        .process-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        #processingMessage {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .progress-container {
+            height: 10px;
+            background-color: rgba(229, 231, 235, 0.5);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+            width: 0%;
+            transition: width var(--transition-speed) ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        #processingInfoText {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        #retryButton {
+            display: none;
+        }
+        
+        /* Loading Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 90%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .modal-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-text {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .percentage-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* Error Message */
+        .error-message {
+            background-color: rgba(249, 65, 68, 0.05);
+            border-left: 4px solid var(--danger-color);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .error-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .error-icon {
+            color: var(--danger-color);
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        
+        .error-text {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .retry-btn {
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .retry-btn:hover {
+            background-color: #e03131;
+        }
+        
+        /* Loading Indicator */
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .loading-spinner {
+            border: 4px solid rgba(67, 97, 238, 0.1);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: var(--spacing-sm);
+            }
+            
+            .welcome-section {
+                padding: var(--spacing-md);
+            }
+            
+            .welcome-section h1 {
+                font-size: 1.5rem;
+            }
+            
+            .welcome-section p {
+                max-width: 100%;
+                font-size: 0.9rem;
+            }
+            
+            .charts {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-container {
+                height: 350px;
+            }
+            
+            .filter-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                padding: var(--spacing-md);
+            }
+            
+            .card-value {
+                font-size: 1.5rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .modal-content {
+                padding: var(--spacing-md);
+                width: 95%;
+            }
+        }
+
+        .custom-btn.btn-primary {
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .custom-btn.btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .custom-btn.btn-primary:hover {
+            background-color: #2e59d9;
+        }
+        
+        .custom-btn.btn-secondary:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img class="logo" src="/static/images/logo.png" alt="logo" />
+        </div>
+        <ul id="sidemenu" class="menu-list">
+            <div class="icon cancel-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="{{ url_for('logout') }}" class="logout-btn">Logout</a></li>
+        </ul>
+        <div class="icon menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="welcome-section">
+            <h1>Welcome back, {{ user.username }}!</h1>
+            <p>{{ current_date }} - Track your spending, gain insights, and take control of your finances</p>
+        </div>
+        
+        <!-- Add error message at the top for better visibility -->
+        <div id="errorMessage" class="error-message" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="error-content">
+                <div>
+                    <i class="fas fa-exclamation-circle error-icon"></i>
+                    <span class="error-text" id="errorText">An error occurred</span>
+                </div>
+                <button class="retry-btn" onclick="fetchData()">
+                    <i class="fas fa-sync-alt"></i> Retry
+                </button>
+            </div>
+        </div>
+        
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="card-title">Total Expenses</div>
+                <div class="card-value">₹0</div>
+                <div class="card-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>0% from last month</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="card-title">Monthly Average</div>
+                <div class="card-value">₹0</div>
+                <div class="card-trend">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>0% from last month</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="card-title">Transactions</div>
+                <div class="card-value">0</div>
+                <div class="card-trend">
+                    <i class="fas fa-equals"></i>
+                    <span>Same as last month</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <div class="card-title">Top Category</div>
+                <div class="card-value">-</div>
+                <div class="card-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>New top category</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Replace the Date Filter and Fetch Section with improved styling -->
+        <div class="filter-section-container">
+            <div class="filter-section">
+                <div class="filter-card">
+                    <div class="filter-header">
+                        <h5 class="filter-title"><i class="fas fa-calendar-alt"></i> Date Range Filter</h5>
+                    </div>
+                    <div class="filter-content">
+                        <div class="input-wrapper">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" class="date-input">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" class="date-input">
+                        </div>
+                        <button id="applyDateFilter" class="custom-btn btn-primary">
+                            <i class="fas fa-filter"></i> Apply Filter
+                        </button>
+                        <button id="clearDateFilter" class="custom-btn btn-secondary" style="margin-left: 5px; background-color: #6c757d;">
+                            <i class="fas fa-times"></i> Clear Filter
+                        </button>
+                        <div id="currentDateFilter" class="current-filter" style="display: none; margin-top: 10px; font-size: 0.9em; color: #666;">
+                            <i class="fas fa-calendar-check"></i> Showing data from <span id="currentStartDate"></span> to <span id="currentEndDate"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-card">
+                    <div class="filter-header">
+                        <h5 class="filter-title"><i class="fas fa-sync-alt"></i> Fetch Options</h5>
+                    </div>
+                    <div class="filter-content">
+                        <button id="fetchData" class="custom-btn btn-primary fetch-btn">
+                            <i class="fas fa-cloud-download-alt"></i> Fetch Transactions
+                        </button>
+                        <button id="fetchN8nBtn" class="custom-btn btn-success fetch-btn" style="margin-left: 10px;" onclick="fetchN8nData()">
+                            <i class="fas fa-sync-alt"></i> Fetch from n8n API
+                        </button>
+                        <div class="toggle-option">
+                            <input type="checkbox" id="forceRefreshToggle" class="toggle-checkbox" checked>
+                            <label for="forceRefreshToggle" class="toggle-label">
+                                <div class="toggle-inner"></div>
+                                <div class="toggle-switch"></div>
+                            </label>
+                            <span class="toggle-text">Force fresh data fetch</span>
+                            <i class="fas fa-info-circle tooltip-icon" title="When checked, fetches fresh data from Gmail and uses Ollama for categorization. When unchecked, uses cached data if available (faster but may not reflect recent transactions)."></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="fetch-status" class="fetch-status">
+                <div class="status-message">
+                    <span id="fetchingMessage"><i class="fas fa-spinner fa-spin"></i> Fetching and categorizing your transactions. This may take a minute...</span>
+                    <span id="errorOccurred" class="error-text"><i class="fas fa-exclamation-circle"></i> An error occurred</span>
+                </div>
+                <div class="processing-status">
+                    <div class="process-title"><i class="fas fa-cog fa-spin"></i> Processing Expenses</div>
+                    <div id="processingMessage">Categorizing your expenses...</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBarStatus"></div>
+                        <span class="progress-text">0% Complete</span>
+                    </div>
+                    <div id="processingInfoText">This may take a few minutes. Please wait...</div>
+                    <button id="retryButton" class="custom-btn btn-danger"><i class="fas fa-redo"></i> Retry</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Fetching and categorizing your transactions. This may take a minute...</p>
+        </div>
+        
+        <div id="errorMessage" class="error-message">
+            <div class="error-content">
+                <div>
+                    <i class="fas fa-exclamation-circle error-icon"></i>
+                    <span class="error-text" id="errorText">An error occurred</span>
+                </div>
+                <button class="retry-btn" onclick="fetchData()">
+                    <i class="fas fa-sync-alt"></i> Retry
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Loading Screen with Progress Bar -->
+        <div id="loadingModal" class="modal-overlay">
+            <div class="modal-content">
+                <h3><i class="fas fa-sync-alt fa-spin"></i> Processing Expenses</h3>
+                <div class="status-text">Categorizing your expenses...</div>
+                <div class="percentage-text">0% Complete</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p class="status-text" id="statusMessage">This may take a few minutes. Please wait...</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="charts">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3 class="chart-title"><i class="fas fa-chart-pie"></i> Expense Distribution</h3>
+                    <div class="chart-options">
+                        <button title="View as pie chart" onclick="changeChartType('pie')"><i class="fas fa-chart-pie"></i></button>
+                        <button title="View as bar chart" onclick="changeChartType('bar')"><i class="fas fa-chart-bar"></i></button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3 class="chart-title"><i class="fas fa-chart-line"></i> Spending Trend</h3>
+                    <div class="chart-options">
+                        <button title="View as area chart" onclick="changeSpendingChartType('line')"><i class="fas fa-chart-area"></i></button>
+                        <button title="View as bar chart" onclick="changeSpendingChartType('bar')"><i class="fas fa-chart-bar"></i></button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="netWorthChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="categorized-expenses">
+            <div class="chart-header">
+                <h3 class="section-title"><i class="fas fa-tags"></i> Categorized Expenses</h3>
+                <div class="table-actions">
+                    <button id="exportCSV" class="export-btn">
+                        <i class="fas fa-file-export"></i> Export to CSV
+                    </button>
+                </div>
+            </div>
+            
+            <div id="categorizedExpensesTableContainer">
+                <table id="categorizedExpensesTable">
+                    <thead>
+                        <tr>
+                            <th>Recipient</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="recent-transactions">
+            <h3 class="section-title"><i class="fas fa-history"></i> Recent Transactions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction.date }}</td>
+                        <td>{{ transaction.description }}</td>
+                        <td>
+                            <span class="category-badge category-{{ transaction.category|lower|replace(' ', '_') }}">
+                                {{ transaction.category }}
+                            </span>
+                        </td>
+                        <td class="{% if transaction.amount < 0 %}amount-negative{% else %}amount-positive{% endif %}">
+                            ₹{{ transaction.amount }}
+                        </td>
+                        <td>₹{{ transaction.balance }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/navbar.js"></script>
+    <script>
+        // Initialize global timer variable for progress polling
+        let progressTimer = null;
+        
+        // Format number as Indian currency
+        function formatIndianCurrency(number) {
+            return new Intl.NumberFormat('en-IN', {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 0
+            }).format(number);
+        }
+        
+        // Generate colors for chart
+        function generateColors(count) {
+            // Define colors that match our category badge colors
+            const categoryColors = {
+                'food': '#10b981',
+                'transport': '#3b82f6',
+                'shopping': '#8b5cf6',
+                'utilities': '#f59e0b',
+                'entertainment': '#ec4899',
+                'healthcare': '#06b6d4',
+                'education': '#6366f1',
+                'other': '#9ca3af',
+                'housing': '#f43f5e',
+                'travel': '#0891b2',
+                'dining': '#16a34a',
+                'bill_payment': '#d97706',
+                'groceries': '#65a30d'
+            };
+            
+            // Return colors in a consistent order
+            return [
+                '#8b5cf6', // Purple (Shopping)
+                '#10b981', // Green (Food)
+                '#3b82f6', // Blue (Transport)
+                '#f59e0b', // Orange (Utilities)
+                '#ec4899', // Pink (Entertainment)
+                '#06b6d4', // Cyan (Healthcare)
+                '#6366f1', // Indigo (Education)
+                '#f43f5e', // Red (Housing)
+                '#0891b2', // Teal (Travel)
+                '#65a30d', // Lime (Groceries)
+                '#d97706', // Amber (Bill Payment)
+                '#9ca3af', // Gray (Other)
+                '#14b8a6', // Teal (Extra)
+                '#6d28d9', // Purple (Extra)
+                '#0369a1', // Blue (Extra)
+                '#ea580c', // Orange (Extra)
+            ].slice(0, count);
+        }
+        
+        // Initialize charts with zero values
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize expense chart
+            const expenseCtx = document.getElementById('expenseChart').getContext('2d');
+            window.expenseChart = new Chart(expenseCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['No Data Available'],
+                    datasets: [{
+                        label: 'Expenses',
+                        data: [100],
+                        backgroundColor: ['#e5e7eb'],
+                        borderWidth: 0,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ₹${formatIndianCurrency(value)} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '70%',
+                    layout: {
+                        padding: 20
+                    }
+                }
+            });
+
+            // Initialize spending trend chart
+            const netWorthCtx = document.getElementById('netWorthChart').getContext('2d');
+            window.netWorthChart = new Chart(netWorthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                    datasets: [{
+                        label: 'Monthly Spending',
+                        data: [0, 0, 0, 0, 0],
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#6366f1',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `₹${formatIndianCurrency(context.raw)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '₹' + formatIndianCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Date filter functionality
+            // Set up event listeners for preset date buttons
+            document.querySelectorAll('.preset-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const days = parseInt(this.getAttribute('data-days'));
+                    const endDate = new Date();
+                    const startDate = new Date();
+                    startDate.setDate(endDate.getDate() - days);
+                    
+                    // Format dates as YYYY-MM-DD for input fields
+                    document.getElementById('startDate').value = formatDateForInput(startDate);
+                    document.getElementById('endDate').value = formatDateForInput(endDate);
+                });
+            });
+            
+            // Set up event listener for apply filter button
+            document.getElementById('applyDateFilter').addEventListener('click', function() {
+                fetchData();
+            });
+            
+            // Set up event listener for clear filter button
+            document.getElementById('clearDateFilter').addEventListener('click', function() {
+                document.getElementById('startDate').value = '';
+                document.getElementById('endDate').value = '';
+                document.getElementById('currentDateFilter').style.display = 'none';
+                fetchData(); // Fetch data without date filters
+            });
+            
+            // Set up event listener for export CSV button
+            document.getElementById('exportCSV').addEventListener('click', function() {
+                exportToCSV();
+            });
+            
+            // Helper function to format date for input field
+            function formatDateForInput(date) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+        });
+
+        // Function to export categorized expenses to CSV
+        function exportToCSV() {
+            try {
+                // Get the table data
+                const table = document.getElementById('categorizedExpensesTable');
+                if (!table) {
+                    console.error('Table not found');
+                    return;
+                }
+                
+                // Create CSV content
+                let csvContent = 'Recipient,Category,Amount\n';
+                
+                // Get all rows except the header
+                const rows = table.querySelectorAll('tbody tr');
+                
+                if (rows.length === 0) {
+                    alert('No data to export');
+                    return;
+                }
+                
+                // Add each row to CSV content
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    if (cells.length >= 3) {
+                        const recipient = cells[0].textContent.replace(/,/g, ' ');
+                        const category = cells[1].textContent.replace(/,/g, ' ');
+                        const amount = cells[2].textContent.replace(/₹/g, '').trim();
+                        
+                        csvContent += `"${recipient}","${category}","${amount}"\n`;
+                    }
+                });
+                
+                // Create a blob and download link
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                
+                // Create a link element and trigger download
+                const link = document.createElement('a');
+                link.setAttribute('href', url);
+                
+                // Generate filename with current date
+                const now = new Date();
+                const filename = `expenses_${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}.csv`;
+                
+                link.setAttribute('download', filename);
+                link.style.display = 'none';
+                
+                document.body.appendChild(link);
+                link.click();
+                
+                // Clean up
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            } catch (err) {
+                console.error('Error exporting to CSV:', err);
+                alert('Error exporting to CSV: ' + err.message);
+            }
+        }
+
+        // Function to fetch and display data
+        function fetchData() {
+            // Show loading modal
+            showModal();
+            
+            // Get the state of the force refresh checkbox
+            const forceRefreshCheckbox = document.getElementById('forceRefreshToggle');
+            const forceRefresh = forceRefreshCheckbox ? forceRefreshCheckbox.checked : true;
+            
+            // Get date range values when applying filter
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            
+            // Log the force refresh status and date range
+            console.log(`Fetching transactions with force_refresh=${forceRefresh}, startDate=${startDate}, endDate=${endDate}`);
+            
+            // Fetch data from API
+            fetch('/fetch_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    force_refresh: forceRefresh,
+                    start_date: startDate,
+                    end_date: endDate
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data received:', data);
+                
+                if (data.status === 'success') {
+                    // Force update progress to 100%
+                    document.getElementById('progressBar').style.width = '100%';
+                    document.getElementById('progressBarStatus').style.width = '100%';
+                    document.querySelector('.percentage-text').textContent = '100% Complete';
+                    document.querySelector('.progress-text').textContent = '100% Complete';
+                    document.getElementById('statusMessage').textContent = 'Processing complete!';
+                    document.getElementById('processingInfoText').textContent = 'Processing complete!';
+                    
+                    // Update date filter display if provided
+                    if (data.date_range) {
+                        document.getElementById('currentStartDate').textContent = data.date_range.start_date;
+                        document.getElementById('currentEndDate').textContent = data.date_range.end_date;
+                        document.getElementById('currentDateFilter').style.display = 'block';
+                    } else {
+                        document.getElementById('currentDateFilter').style.display = 'none';
+                    }
+                    
+                    // Update summary cards
+                    if (data.total_expenses !== undefined) {
+                        document.querySelector('.summary-cards .card:nth-child(1) .card-value').textContent = 
+                            '₹' + formatIndianCurrency(data.total_expenses);
+                    }
+                    
+                    // Calculate and update monthly average
+                    if (data.total_expenses !== undefined) {
+                        const monthlyAvg = data.total_expenses / 3; // Assuming 3 months
+                        document.querySelector('.summary-cards .card:nth-child(2) .card-value').textContent = 
+                            '₹' + formatIndianCurrency(monthlyAvg);
+                    }
+                    
+                    // Update transaction count
+                    if (data.transaction_count !== undefined) {
+                        document.querySelector('.summary-cards .card:nth-child(3) .card-value').textContent = 
+                            data.transaction_count;
+                    }
+                    
+                    // Update top category
+                    if (data.expense_categories && data.expense_categories.length > 0) {
+                        document.querySelector('.summary-cards .card:nth-child(4) .card-value').textContent = 
+                            data.expense_categories[0] || '-';
+                    }
+                    
+                    // Update expense chart if we have categories and values
+                    if (data.expense_categories && data.expense_values) {
+                        updateExpenseChart(data.expense_categories, data.expense_values);
+                    }
+                    
+                    // Update categorized expenses table
+                    if (data.categorized_expenses) {
+                        updateCategorizedExpenses(data.categorized_expenses);
+                    }
+                    
+                    // Update spending trend chart
+                    if (data.expense_values) {
+                        updateNetWorthChart({
+                            values: data.expense_values,
+                            monthlyData: data.monthly_data
+                        });
+                    }
+                    
+                    // Update recent transactions table
+                    if (data.recent_transactions) {
+                        updateRecentTransactions(data.recent_transactions);
+                    }
+                    
+                    // Hide loading modal with a slight delay to show completion
+                    setTimeout(hideModal, 1000);
+                    
+                    // Hide fetch status
+                    setTimeout(() => {
+                        updateFetchStatus('done');
+                    }, 1000);
+                } else {
+                    // Show error if status is not success
+                    updateFetchStatus('error', data.message || 'An error occurred while processing data');
+                    showError(data.message || 'An error occurred while processing data');
+                    hideModal();
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                updateFetchStatus('error', error.message || 'An error occurred while fetching data');
+                showError(error.message || 'An error occurred while fetching data');
+                hideModal();
+            });
+        }
+
+        // Monitor progress and update modal
+        function startProgressPolling() {
+            // Reset any existing polling
+            stopProgressPolling();
+            
+            // Set up polling interval
+            progressTimer = setInterval(function() {
+                fetch('/get_progress')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update progress bar in modal
+                        const progressBar = document.getElementById('progressBar');
+                        const progressBarStatus = document.getElementById('progressBarStatus');
+                        const percentText = document.querySelector('.percentage-text');
+                        const progressText = document.querySelector('.progress-text');
+                        const statusMessage = document.getElementById('statusMessage');
+                        const processingMessage = document.getElementById('processingMessage');
+                        const processingInfoText = document.getElementById('processingInfoText');
+                        
+                        // Update progress percentage (use percent or progress field)
+                        const progressValue = data.percent !== undefined ? data.percent : (data.progress || 0);
+                        
+                        // Update both progress bars
+                        progressBar.style.width = `${progressValue}%`;
+                        progressBarStatus.style.width = `${progressValue}%`;
+                        
+                        // Update both percentage texts
+                        percentText.textContent = `${progressValue}% Complete`;
+                        progressText.textContent = `${progressValue}% Complete`;
+                        
+                        // Update status messages
+                        if (data.status) {
+                            statusMessage.textContent = data.status;
+                            processingMessage.textContent = data.status;
+                            
+                            // Update info text based on progress
+                            if (progressValue < 25) {
+                                processingInfoText.textContent = "Initializing categorization...";
+                            } else if (progressValue < 50) {
+                                processingInfoText.textContent = "Processing transactions...";
+                            } else if (progressValue < 75) {
+                                processingInfoText.textContent = "Applying AI categorization...";
+                            } else if (progressValue < 100) {
+                                processingInfoText.textContent = "Almost finished...";
+                            } else {
+                                processingInfoText.textContent = "Completed!";
+                            }
+                        }
+                        
+                        // If complete, stop polling
+                        if (progressValue >= 100) {
+                            stopProgressPolling();
+                            // Set completed status after a short delay
+                            setTimeout(() => {
+                                updateFetchStatus('done');
+                            }, 1000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error polling for progress:', error);
+                        updateFetchStatus('error', 'Error monitoring progress: ' + error.message);
+                        stopProgressPolling();
+                    });
+            }, 1000); // Poll every second
+        }
+
+        // Function to stop progress polling
+        function stopProgressPolling() {
+            if (progressTimer) {
+                clearInterval(progressTimer);
+                progressTimer = null;
+            }
+        }
+
+        // Modal functions
+        function showModal() {
+            // Reset progress indicators
+            document.getElementById('progressBar').style.width = '0%';
+            document.getElementById('progressBarStatus').style.width = '0%';
+            document.querySelector('.percentage-text').textContent = '0% Complete';
+            document.querySelector('.progress-text').textContent = '0% Complete';
+            document.getElementById('statusMessage').textContent = 'Initializing...';
+            document.getElementById('processingInfoText').textContent = 'This may take a few minutes. Please wait...';
+            
+            // Show modal loading screen
+            document.getElementById('loadingModal').style.display = 'flex';
+            
+            // Show fetch status with processing state
+            document.getElementById('fetch-status').style.display = 'block';
+            updateFetchStatus('processing', 'Starting categorization process...');
+            
+            // Start polling for progress updates
+            startProgressPolling();
+        }
+
+        function hideModal() {
+            // Hide loading modal
+            document.getElementById('loadingModal').style.display = 'none';
+            // Stop polling
+            stopProgressPolling();
+        }
+
+        // Function to update the expense distribution chart
+        function updateExpenseChart(categories, values) {
+            const ctx = document.getElementById('expenseChart').getContext('2d');
+            
+            // Generate colors for each category based on category names
+            const backgroundColors = [];
+            
+            // Match colors to categories when possible
+            const categoryColorMap = {
+                'shopping': '#8b5cf6',
+                'food': '#10b981',
+                'transport': '#3b82f6',
+                'utilities': '#f59e0b',
+                'entertainment': '#ec4899',
+                'healthcare': '#06b6d4',
+                'education': '#6366f1',
+                'housing': '#f43f5e',
+                'travel': '#0891b2',
+                'groceries': '#65a30d',
+                'bill payment': '#d97706',
+                'other': '#9ca3af'
+            };
+            
+            // Assign colors based on category names when possible
+            categories.forEach(category => {
+                const lowerCategory = category.toLowerCase();
+                // Try to find a matching color
+                let color = null;
+                
+                // Check for each known category
+                for (const [key, value] of Object.entries(categoryColorMap)) {
+                    if (lowerCategory.includes(key)) {
+                        color = value;
+                        break;
+                    }
+                }
+                
+                // If no match found, use next color from our palette
+                if (!color) {
+                    color = generateColors(1)[0];
+                }
+                
+                backgroundColors.push(color);
+            });
+            
+            // Check if categories and values exist and have length
+            if (!categories || !categories.length || !values || !values.length) {
+                console.error('Invalid chart data:', { categories, values });
+                // Display a message in the chart area
+                if (window.expenseChart) {
+                    window.expenseChart.data.labels = ['No Data Available'];
+                    window.expenseChart.data.datasets[0].data = [100];
+                    window.expenseChart.data.datasets[0].backgroundColor = ['#e5e7eb'];
+                    window.expenseChart.update();
+                }
+                return;
+            }
+            
+            // Create or update chart
+            if (window.expenseChart) {
+                // If chart exists, update it
+                window.expenseChart.data.labels = categories;
+                window.expenseChart.data.datasets[0].data = values;
+                window.expenseChart.data.datasets[0].backgroundColor = backgroundColors;
+                window.expenseChart.update();
+            } else {
+                // If chart doesn't exist, create a new one
+                window.expenseChart = new Chart(ctx, {
+                    type: currentExpenseChartType,
+                    data: {
+                        labels: categories,
+                        datasets: [{
+                            data: values,
+                            backgroundColor: backgroundColors,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: currentExpenseChartType === 'pie' || currentExpenseChartType === 'doughnut' ? 'bottom' : 'top',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const label = context.label || '';
+                                        const value = context.raw || 0;
+                                        const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                        const percentage = Math.round((value / total) * 100);
+                                        return `${label}: ₹${formatIndianCurrency(value)} (${percentage}%)`;
+                                    }
+                                }
+                            }
+                        },
+                        cutout: currentExpenseChartType === 'doughnut' ? '70%' : undefined,
+                        layout: {
+                            padding: 20
+                        }
+                    }
+                });
+            }
+        }
+
+        // Function to update the spending trend chart
+        function updateNetWorthChart(data) {
+            if (!window.netWorthChart) {
+                console.error('Net worth chart not initialized');
+                return;
+            }
+            
+            // Create monthly data based on expense categories
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
+            let monthlyData = [];
+            
+            // Use provided monthly data if available
+            if (data.monthlyData && typeof data.monthlyData === 'object') {
+                console.log('Using monthly data from server:', data.monthlyData);
+                
+                // Handle monthlyData if it's an object (from n8n API)
+                if (!Array.isArray(data.monthlyData)) {
+                    // Convert object with month keys to array format
+                    const monthValues = [];
+                    
+                    // First check if we have data for standard months
+                    for (const month of months) {
+                        // Look for month in the data (might be with or without year)
+                        let found = false;
+                        
+                        // Check different formats - "Jan", "Jan 2025", "2025-01", etc.
+                        for (const key in data.monthlyData) {
+                            if (key.includes(month) || 
+                                (month === 'Jan' && (key.includes('01') || key.includes('1/'))) ||
+                                (month === 'Feb' && (key.includes('02') || key.includes('2/'))) ||
+                                (month === 'Mar' && (key.includes('03') || key.includes('3/'))) ||
+                                (month === 'Apr' && (key.includes('04') || key.includes('4/'))) ||
+                                (month === 'May' && (key.includes('05') || key.includes('5/')))) {
+                                monthValues.push(parseFloat(data.monthlyData[key]) || 0);
+                                found = true;
+                                break;
+                            }
+                        }
+                        
+                        // If no data for this month, use 0
+                        if (!found) {
+                            monthValues.push(0);
+                        }
+                    }
+                    
+                    // Use the converted array
+                    console.log('Converted monthly data to array:', monthValues);
+                    monthlyData = monthValues;
+                } else {
+                    // If it's already an array, use it directly
+                monthlyData = data.monthlyData;
+                }
+            } else {
+                // Calculate total expenses and create a distribution if no monthly data provided
+                let totalExpense = 0;
+                if (data.values && Array.isArray(data.values)) {
+                    totalExpense = data.values.reduce((sum, value) => sum + value, 0);
+                }
+                
+                if (totalExpense > 0) {
+                    // Create a meaningful distribution across months
+                    const baseValue = totalExpense / months.length;
+                    
+                    // Generate a realistic spending pattern
+                    monthlyData.push(Math.round(baseValue * 0.7));  // Jan - lower
+                    monthlyData.push(Math.round(baseValue * 0.8));  // Feb - lower
+                    monthlyData.push(Math.round(baseValue * 1.1));  // Mar - higher
+                    monthlyData.push(Math.round(baseValue * 1.2));  // Apr - higher
+                    monthlyData.push(Math.round(baseValue * 1.0));  // May - average
+                } else {
+                    // If no expense data, use zeros
+                    months.forEach(() => monthlyData.push(0));
+                }
+            }
+            
+            console.log('Updating spending trend with data:', monthlyData);
+            
+            // Make sure we have valid data - convert any NaN to 0
+            monthlyData = monthlyData.map(val => isNaN(val) ? 0 : val);
+            
+            // Update chart data
+            window.netWorthChart.data.labels = months;
+            window.netWorthChart.data.datasets[0].data = monthlyData;
+            window.netWorthChart.update();
+        }
+
+        // Update the categorized expenses table with proper category badges
+        function updateCategorizedExpenses(expenses) {
+            try {
+                const tableContainer = document.getElementById('categorizedExpensesTableContainer');
+                
+                // Handle empty state
+                if (!expenses || !Array.isArray(expenses) || expenses.length === 0) {
+                    tableContainer.innerHTML = `
+                        <div class="table-empty-state">
+                            <i class="fas fa-receipt"></i>
+                            <h4>No Expenses Found</h4>
+                            <p>Your categorized expenses will appear here once you fetch your transaction data.</p>
+                            <button class="custom-btn btn-primary" onclick="fetchData()">
+                                <i class="fas fa-sync-alt"></i> Fetch Transactions
+                            </button>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Show table with data
+                tableContainer.innerHTML = `
+                    <table id="categorizedExpensesTable">
+                        <thead>
+                            <tr>
+                                <th>Recipient</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated below -->
+                        </tbody>
+                    </table>
+                `;
+                
+                const table = document.getElementById('categorizedExpensesTable').getElementsByTagName('tbody')[0];
+                
+                // Add expense rows
+                expenses.forEach(expense => {
+                    if (!expense || typeof expense !== 'object') return;
+                    
+                    const row = table.insertRow();
+                    
+                    // Recipient column
+                    const recipientCell = row.insertCell(0);
+                    const recipient = expense.description || expense.recipient || 'Unknown';
+                    recipientCell.textContent = recipient;
+                    
+                    // Category column with badge styling
+                    const categoryCell = row.insertCell(1);
+                    // Use the category if present, otherwise guess based on recipient
+                    let category = expense.category || '';
+                    
+                    // If category is empty or just whitespace, guess category
+                    if (!category || category.trim() === '') {
+                        category = guessCategory(recipient);
+                    }
+                    
+                    // Make sure category is not empty
+                    if (!category || category.trim() === '') {
+                        category = 'Other';
+                    }
+                    
+                    // Set the HTML directly with the badge styling matching Recent Transactions
+                    categoryCell.innerHTML = `<span class="category-badge category-${category.toLowerCase().replace(/[^a-z0-9]/g, '_')}">${category}</span>`;
+                    
+                    // Amount column
+                    const amountCell = row.insertCell(2);
+                    const amount = expense.amount || 0;
+                    amountCell.textContent = '₹' + formatIndianCurrency(amount);
+                });
+                
+                // Add default category styling if not already in CSS
+                addMissingCategoryStyles();
+                
+                // Update the export to CSV functionality
+                globalExpenseData = expenses || [];
+            } catch (error) {
+                console.error('Error updating categorized expenses table:', error);
+                showError('Error displaying categorized expenses: ' + error.message);
+            }
+        }
+        
+        // Function to add any missing category styles
+        function addMissingCategoryStyles() {
+            // Check if we already added the styles
+            if (document.getElementById('dynamic-category-styles')) return;
+            
+            // Create style element
+            const style = document.createElement('style');
+            style.id = 'dynamic-category-styles';
+            
+            // Define styles for category badges that match the Recent Transactions section
+            let css = `
+                /* Default badge styling */
+                .category-badge {
+                    display: inline-block;
+                    padding: 4px 12px;
+                    border-radius: 50px;
+                    font-size: 0.85rem;
+                    font-weight: 500;
+                    color: white;
+                    text-transform: capitalize;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    background-color: #9ca3af;
+                }
+                
+                /* Specific category colors */
+                .category-food, .category-restaurant, .category-dining {
+                    background-color: #10b981;
+                }
+                
+                .category-transport, .category-travel, .category-commute {
+                    background-color: #3b82f6;
+                }
+                
+                .category-shopping, .category-retail {
+                    background-color: #8b5cf6;
+                }
+                
+                .category-utilities, .category-bill_payment {
+                    background-color: #f59e0b;
+                }
+                
+                .category-entertainment, .category-leisure {
+                    background-color: #ec4899;
+                }
+                
+                .category-healthcare, .category-medical, .category-health {
+                    background-color: #06b6d4;
+                }
+                
+                .category-education, .category-learning {
+                    background-color: #6366f1;
+                }
+                
+                .category-other, .category-miscellaneous {
+                    background-color: #9ca3af;
+                }
+                
+                .category-housing, .category-rent {
+                    background-color: #f43f5e;
+                }
+            `;
+            
+            style.textContent = css;
+            document.head.appendChild(style);
+        }
+        
+        // Common function to guess category from recipient
+        function guessCategory(description) {
+            const descLower = description.toLowerCase();
+            
+            if (descLower.includes('amazon') || descLower.includes('flipkart') || descLower.includes('myntra')) {
+                return 'Shopping';
+            } else if (descLower.includes('restaurant') || descLower.includes('food') || descLower.includes('swiggy') || descLower.includes('zomato')) {
+                return 'Food';
+            } else if (descLower.includes('uber') || descLower.includes('ola') || descLower.includes('metro') || descLower.includes('petrol') || descLower.includes('fuel')) {
+                return 'Transport';
+            } else if (descLower.includes('movie') || descLower.includes('netflix') || descLower.includes('prime')) {
+                return 'Entertainment';
+            } else if (descLower.includes('phone') || descLower.includes('electric') || descLower.includes('bill') || descLower.includes('jio') || descLower.includes('broadband') || descLower.includes('google')) {
+                return 'Utilities';
+            } else if (descLower.includes('doctor') || descLower.includes('hospital') || descLower.includes('medicine') || descLower.includes('pharma')) {
+                return 'Healthcare';
+            } else if (descLower.includes('toy') || descLower.includes('game')) {
+                return 'Entertainment';
+            } else {
+                return 'Other';
+            }
+        }
+
+        // Improved function to update the recent transactions table
+        function updateRecentTransactions(transactions) {
+            try {
+                const table = document.querySelector('.recent-transactions table tbody');
+                table.innerHTML = ''; // Clear existing rows
+                
+                if (transactions && Array.isArray(transactions) && transactions.length > 0) {
+                    // First ensure we have all necessary category styles
+                    addMissingCategoryStyles();
+                    
+                    transactions.forEach(tx => {
+                        if (!tx || typeof tx !== 'object') return;
+                        
+                        const row = table.insertRow();
+                        
+                        // Date cell
+                        const dateCell = row.insertCell(0);
+                        dateCell.textContent = tx.date || 'N/A';
+                        
+                        // Description cell
+                        const descCell = row.insertCell(1);
+                        const recipient = tx.recipient || tx.description || 'Unknown';
+                        descCell.textContent = recipient;
+                        
+                        // Category cell with proper badge styling
+                        const catCell = row.insertCell(2);
+                        
+                        // Use provided category or guess - normalize category formatting
+                        let category = '';
+                        if (tx.category && typeof tx.category === 'string' && tx.category.trim() !== '') {
+                            // Normalize category name - capitalize first letter of each word
+                            category = tx.category.trim()
+                                .split(' ')
+                                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                                .join(' ');
+                        } else {
+                        // If category is empty, guess based on recipient
+                            category = guessCategory(recipient);
+                        }
+                        
+                        // Ensure category class name is properly formatted for CSS
+                        const categoryClass = category.toLowerCase()
+                            .replace(/[^a-z0-9]/g, '_') // Replace any non-alphanumeric with underscore
+                            .replace(/_+/g, '_')       // Replace multiple underscores with single
+                            .replace(/_$/, '');        // Remove trailing underscore
+                        
+                        // Make sure we have a style for this category
+                        ensureCategoryStyle(category, categoryClass);
+                        
+                        // Add category badge
+                        catCell.innerHTML = `<span class="category-badge category-${categoryClass}">${category}</span>`;
+                        
+                        // Amount cell with proper formatting
+                        const amountCell = row.insertCell(3);
+                        const amount = parseFloat(tx.amount) || 0;
+                        amountCell.className = amount < 0 ? 'amount-negative' : 'amount-positive';
+                        amountCell.textContent = '₹' + formatIndianCurrency(Math.abs(amount));
+                        
+                        // Balance cell
+                        const balanceCell = row.insertCell(4);
+                        balanceCell.textContent = tx.balance ? '₹' + formatIndianCurrency(tx.balance) : 'N/A';
+                    });
+                } else {
+                    const row = table.insertRow();
+                    const cell = row.insertCell(0);
+                    cell.colSpan = 5;
+                    cell.innerHTML = `
+                        <div class="table-empty-state" style="padding: 2rem 1rem;">
+                            <i class="fas fa-receipt" style="font-size: 2rem;"></i>
+                            <h4>No Recent Transactions</h4>
+                            <p>Please fetch your transaction data to view recent transactions.</p>
+                        </div>
+                    `;
+                }
+            } catch (err) {
+                console.error('Error updating recent transactions table:', err);
+                showError('Error displaying transactions: ' + err.message);
+            }
+        }
+
+        // Function to ensure we have a style for a specific category
+        function ensureCategoryStyle(categoryName, categoryClass) {
+            // Get existing dynamic styles or create if doesn't exist
+            let styleElement = document.getElementById('dynamic-category-styles');
+            if (!styleElement) {
+                addMissingCategoryStyles();
+                return;
+            }
+            
+            // Check if we need to add this category 
+            if (!styleElement.textContent.includes(`.category-${categoryClass}`)) {
+                // Assign a color based on category
+                let color = getCategoryColor(categoryName);
+                
+                // Add the new category style
+                const newStyle = `
+                .category-${categoryClass} {
+                    background-color: ${color};
+                }`;
+                
+                // Append to style element
+                styleElement.textContent += newStyle;
+            }
+        }
+
+        // Function to get an appropriate color for a category
+        function getCategoryColor(category) {
+            const categoryLower = category.toLowerCase();
+            
+            // Return color based on category keywords
+            if (categoryLower.includes('food') || categoryLower.includes('restaurant') || categoryLower.includes('dining')) {
+                return '#10b981'; // Green
+            } else if (categoryLower.includes('transport') || categoryLower.includes('travel') || categoryLower.includes('commute')) {
+                return '#3b82f6'; // Blue
+            } else if (categoryLower.includes('shopping') || categoryLower.includes('retail')) {
+                return '#8b5cf6'; // Purple
+            } else if (categoryLower.includes('util') || categoryLower.includes('bill') || categoryLower.includes('payment')) {
+                return '#f59e0b'; // Amber
+            } else if (categoryLower.includes('entertain') || categoryLower.includes('leisure')) {
+                return '#ec4899'; // Pink
+            } else if (categoryLower.includes('health') || categoryLower.includes('medical') || categoryLower.includes('doctor')) {
+                return '#06b6d4'; // Cyan
+            } else if (categoryLower.includes('education') || categoryLower.includes('learn')) {
+                return '#6366f1'; // Indigo
+            } else if (categoryLower.includes('house') || categoryLower.includes('rent') || categoryLower.includes('mortgage')) {
+                return '#f43f5e'; // Red
+            } else {
+                return '#9ca3af'; // Gray (default)
+            }
+        }
+
+        // Function to show error message
+        function showError(message) {
+            try {
+            const errorElement = document.getElementById('errorMessage');
+                if (!errorElement) {
+                    console.error('Error element not found in DOM');
+                    alert('Error: ' + message); // Fallback to browser alert
+                    return;
+                }
+                
+                const errorTextElement = document.getElementById('errorText');
+                if (!errorTextElement) {
+                    console.error('Error text element not found in DOM');
+                    errorElement.innerHTML = `
+                        <div class="error-content">
+                            <div>
+                                <i class="fas fa-exclamation-circle error-icon"></i>
+                                <span class="error-text">${message}</span>
+                            </div>
+                            <button class="retry-btn" onclick="fetchData()">
+                                <i class="fas fa-sync-alt"></i> Retry
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    errorTextElement.textContent = message;
+                }
+                
+            errorElement.style.display = 'block';
+            
+            // Scroll to error message
+            errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Auto-hide after 10 seconds
+                setTimeout(() => {
+                    if (errorElement) {
+                        errorElement.style.display = 'none';
+                    }
+                }, 10000);
+            } catch (err) {
+                // If all else fails, use alert
+                console.error('Error showing error message:', err);
+                alert('Error: ' + message);
+            }
+        }
+
+        // Function to generate random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Fetch data when button is clicked
+        document.getElementById('fetchData').addEventListener('click', function() {
+            fetchData();
+        });
+
+        // Initialize global variables for chart types
+        let currentExpenseChartType = 'doughnut';
+        let currentSpendingChartType = 'line';
+
+        // Function to change expense chart type
+        function changeChartType(type) {
+            if (window.expenseChart && type !== currentExpenseChartType) {
+                // Save current data
+                const labels = window.expenseChart.data.labels;
+                const data = window.expenseChart.data.datasets[0].data;
+                const backgroundColor = window.expenseChart.data.datasets[0].backgroundColor;
+                
+                // Destroy current chart
+                window.expenseChart.destroy();
+                
+                // Create new chart with different type
+                const ctx = document.getElementById('expenseChart').getContext('2d');
+                
+                // Update options based on chart type
+                let options = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: type === 'pie' || type === 'doughnut' ? 'bottom' : 'top',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ₹${formatIndianCurrency(value)} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: type === 'doughnut' ? '70%' : undefined,
+                    layout: {
+                        padding: 20
+                    }
+                };
+                
+                // Additional options for bar chart
+                if (type === 'bar') {
+                    options.scales = {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '₹' + formatIndianCurrency(value);
+                                }
+                            }
+                        }
+                    };
+                    
+                    // For bar charts, add border color
+                    const borderColors = backgroundColor.map(color => color);
+                }
+                
+                // Create new chart
+                window.expenseChart = new Chart(ctx, {
+                    type: type,
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: data,
+                            backgroundColor: backgroundColor,
+                            borderWidth: 1,
+                            borderColor: type === 'bar' ? backgroundColor.map(color => color) : 'white'
+                        }]
+                    },
+                    options: options
+                });
+                
+                // Update current type
+                currentExpenseChartType = type;
+            }
+        }
+
+        // Function to change spending chart type
+        function changeSpendingChartType(type) {
+            if (window.netWorthChart && type !== currentSpendingChartType) {
+                // Save current data
+                const labels = window.netWorthChart.data.labels;
+                const data = window.netWorthChart.data.datasets[0].data;
+                
+                // Destroy current chart
+                window.netWorthChart.destroy();
+                
+                // Create new chart with different type
+                const ctx = document.getElementById('netWorthChart').getContext('2d');
+                
+                // Configure dataset based on type
+                const dataset = {
+                    label: 'Monthly Spending',
+                    data: data,
+                    borderColor: '#4361ee',
+                    backgroundColor: type === 'line' ? 'rgba(67, 97, 238, 0.1)' : 'rgba(67, 97, 238, 0.7)',
+                    fill: type === 'line',
+                    tension: 0.4,
+                    pointBackgroundColor: '#4361ee',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                };
+                
+                // Create new chart
+                window.netWorthChart = new Chart(ctx, {
+                    type: type,
+                    data: {
+                        labels: labels,
+                        datasets: [dataset]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `₹${formatIndianCurrency(context.raw)}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '₹' + formatIndianCurrency(value);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                // Update current type
+                currentSpendingChartType = type;
+            }
+        }
+
+        // Show/hide appropriate fetch status elements
+        function updateFetchStatus(status, message = '') {
+            const fetchingMessage = document.getElementById('fetchingMessage');
+            const errorOccurred = document.getElementById('errorOccurred');
+            const processingStatus = document.querySelector('.processing-status');
+            const retryButton = document.getElementById('retryButton');
+            
+            // Reset all states
+            fetchingMessage.style.display = 'none';
+            errorOccurred.style.display = 'none';
+            processingStatus.style.display = 'none';
+            retryButton.style.display = 'none';
+            
+            // Set appropriate state
+            switch(status) {
+                case 'fetching':
+                    fetchingMessage.style.display = 'block';
+                    break;
+                case 'processing':
+                    processingStatus.style.display = 'block';
+                    if (message) {
+                        document.getElementById('processingMessage').textContent = message;
+                    }
+                    break;
+                case 'error':
+                    errorOccurred.style.display = 'block';
+                    if (message) {
+                        errorOccurred.textContent = message;
+                    }
+                    retryButton.style.display = 'block';
+                    break;
+                case 'done':
+                    // Hide the fetch status section
+                    document.getElementById('fetch-status').style.display = 'none';
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // Add event listener for retry button
+        document.getElementById('retryButton').addEventListener('click', function() {
+            fetchData();
+        });
+
+        // Initialize fetch status section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide the fetch status section initially
+            document.getElementById('fetch-status').style.display = 'none';
+        });
+
+        // Function to fetch data from n8n API
+        function fetchN8nData() {
+            try {
+            // Get date values
+            let startDate = document.getElementById('n8n-start-date')?.value || document.getElementById('startDate')?.value || '';
+            let endDate = document.getElementById('n8n-end-date')?.value || document.getElementById('endDate')?.value || '';
+            
+                // Find the button and disable it
+                const fetchButton = document.getElementById('fetchN8nBtn');
+                if (fetchButton) {
+                    fetchButton.disabled = true;
+                    fetchButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Fetching...';
+                }
+            
+            // Show progress modal
+            showProgressModal("Fetching transactions from n8n API...");
+            
+            // Set up the data to send
+            const data = {
+                start_date: startDate,
+                end_date: endDate
+            };
+            
+            // Make a POST request to the fetch_n8n_data endpoint
+            fetch('/fetch_n8n_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+            .then(data => {
+                if (data.status === 'success') {
+                    // Update the dashboard with the response data
+                    showAlert('success', `Successfully fetched ${data.transaction_count} transactions from n8n API!`);
+                    updateDashboard(data);
+                    } else if (data.status === 'warning' && data.message && data.message.includes('n8n webhook')) {
+                    // Special handling for n8n webhook activation
+                    showN8nActivationInstructions();
+                    showAlert('warning', data.message);
+                    } else if (data.status === 'warning' && data.message && data.message.includes('webhook')) {
+                    showN8nActivationInstructions();
+                    showAlert('warning', 'The webhook path is incorrect. Make sure it is set to "transactions" in your n8n workflow.');
+                } else if (data.status === 'warning') {
+                        showAlert('warning', data.message || 'Warning while fetching data');
+                } else {
+                        showError('Error updating dashboard: ' + (data.message || 'An error occurred while fetching data'));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                    showError('Failed to connect to n8n API: ' + error.message);
+            })
+            .finally(() => {
+                // Hide progress modal
+                hideProgressModal();
+                    
+                    // Re-enable button
+                    const fetchButton = document.getElementById('fetchN8nBtn');
+                    if (fetchButton) {
+                        fetchButton.disabled = false;
+                        fetchButton.innerHTML = '<i class="fas fa-cloud-download-alt"></i> Fetch from n8n API';
+                    }
+                });
+            } catch (err) {
+                console.error('Error in fetchN8nData:', err);
+                showError('Failed to initiate n8n API request: ' + err.message);
+                
+                // Hide progress modal
+                hideProgressModal();
+                
+                // Reset button
+                const fetchButton = document.getElementById('fetchN8nBtn');
+                if (fetchButton) {
+                    fetchButton.disabled = false;
+                    fetchButton.innerHTML = '<i class="fas fa-cloud-download-alt"></i> Fetch from n8n API';
+                }
+            }
+        }
+
+        // Function to show n8n webhook activation instructions
+        function showN8nActivationInstructions() {
+            // Create a modal for instructions
+            const instructionsModal = document.createElement('div');
+            instructionsModal.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; justify-content: center; align-items: center;">
+                    <div style="background: white; border-radius: 8px; padding: 20px; max-width: 600px; width: 90%;">
+                        <h3 style="color: #3a0ca3; margin-bottom: 15px;">n8n Webhook Activation Required</h3>
+                        <p>The n8n webhook needs to be activated before it can be used. Please follow these steps:</p>
+                        <ol style="margin-bottom: 20px; padding-left: 20px;">
+                            <li>Open n8n at <a href="http://localhost:5678" target="_blank">http://localhost:5678</a></li>
+                            <li>Sign in and open your workflow2_api_endpoint workflow</li>
+                            <li>Find the Webhook node (usually the first node in the workflow)</li>
+                            <li>Verify that the webhook path is set to exactly: <strong>webhook-test/transactions</strong></li>
+                            <li>Make sure "Response Mode" is set to "Last Node" (not "responseNode")</li>
+                            <li>Click the "Test" button on the Webhook node</li>
+                            <li>Return to this page and click "Fetch from n8n API" immediately</li>
+                        </ol>
+                        <p><strong>Important:</strong> The webhook URL must be <code>http://localhost:5678/webhook-test/transactions</code> for it to work properly.</p>
+                        <p><strong>Note:</strong> In test mode, the webhook will only work for one call after testing it.</p>
+                        <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                            <button id="closeInstructions" style="background: #4361ee; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">Close</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add to document
+            document.body.appendChild(instructionsModal);
+            
+            // Add event listener to close button
+            document.getElementById('closeInstructions').addEventListener('click', function() {
+                instructionsModal.remove();
+            });
+        }
+        
+        // Function to show an alert message
+        function showAlert(type, message) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.style.position = 'fixed';
+            alertDiv.style.top = '20px';
+            alertDiv.style.right = '20px';
+            alertDiv.style.maxWidth = '400px';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+            alertDiv.style.borderRadius = '8px';
+            alertDiv.style.padding = '15px 20px';
+            
+            if (type === 'success') {
+                alertDiv.style.backgroundColor = '#d1e7dd';
+                alertDiv.style.color = '#0f5132';
+                alertDiv.style.borderColor = '#badbcc';
+            } else if (type === 'warning') {
+                alertDiv.style.backgroundColor = '#fff3cd';
+                alertDiv.style.color = '#856404';
+                alertDiv.style.borderColor = '#ffeeba';
+            } else if (type === 'danger') {
+                alertDiv.style.backgroundColor = '#f8d7da';
+                alertDiv.style.color = '#721c24';
+                alertDiv.style.borderColor = '#f5c6cb';
+            }
+            
+            // Add message and close button
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" style="position: absolute; top: 15px; right: 15px; cursor: pointer; font-size: 18px; font-weight: bold;">&times;</button>
+            `;
+            
+            // Add to document
+            document.body.appendChild(alertDiv);
+            
+            // Add click event to close button
+            alertDiv.querySelector('.btn-close').addEventListener('click', function() {
+                alertDiv.remove();
+            });
+            
+            // Auto-remove after 5 seconds
+            setTimeout(function() {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+        
+        // Function to update dashboard with fetched data
+        function updateDashboard(data) {
+            // Check if we have data
+            if (!data) {
+                console.error('No data provided to updateDashboard');
+                showError('Error updating dashboard: No data received');
+                return;
+            }
+            
+            console.log('Updating dashboard with data:', data);
+            
+            try {
+                // Update recent transactions table first since this is most important
+                if (data.recent_transactions) {
+                    console.log('Updating recent transactions:', data.recent_transactions.length);
+                    updateRecentTransactions(data.recent_transactions);
+                }
+                
+                // Update expense categories chart
+            if (data.expense_categories && data.expense_values) {
+                updateExpenseChart(data.expense_categories, data.expense_values);
+            }
+            
+                // Update total expenses
+                if (data.total_expenses !== undefined) {
+                    const totalAmountElement = document.getElementById('totalAmount');
+                    if (totalAmountElement) {
+                        totalAmountElement.textContent = 'Rs. ' + parseFloat(data.total_expenses).toFixed(2);
+                    }
+                    
+                    // Update summary cards
+                    const totalExpensesElement = document.querySelector('.summary-cards .card:nth-child(1) .card-value');
+                    if (totalExpensesElement) {
+                        totalExpensesElement.textContent = '₹' + formatIndianCurrency(data.total_expenses);
+                    }
+                    
+                    // Calculate and update monthly average
+                    const monthlyAvg = data.total_expenses / 3; // Assuming 3 months
+                    const monthlyAvgElement = document.querySelector('.summary-cards .card:nth-child(2) .card-value');
+                    if (monthlyAvgElement) {
+                        monthlyAvgElement.textContent = '₹' + formatIndianCurrency(monthlyAvg);
+                    }
+                }
+                
+                // Update transaction count
+                if (data.transaction_count !== undefined) {
+                    const txCountCardElement = document.querySelector('.summary-cards .card:nth-child(3) .card-value');
+                    if (txCountCardElement) {
+                        txCountCardElement.textContent = data.transaction_count;
+                    }
+                    
+                    const transactionCountElement = document.getElementById('transactionCount');
+                    if (transactionCountElement) {
+                        transactionCountElement.textContent = data.transaction_count;
+                    }
+                }
+                
+                // Update top category
+                if (data.expense_categories && data.expense_categories.length > 0) {
+                    const topCategoryElement = document.querySelector('.summary-cards .card:nth-child(4) .card-value');
+                    if (topCategoryElement) {
+                        topCategoryElement.textContent = data.expense_categories[0] || '-';
+                    }
+                }
+                
+                // Update category breakdown table
+                if (data.categorized_expenses) {
+                    const categoryTableBody = document.getElementById('categoryTableBody');
+                    if (categoryTableBody) {
+                        categoryTableBody.innerHTML = '';
+                        
+                        data.categorized_expenses.forEach(expense => {
+                            const row = document.createElement('tr');
+                            const percentage = (expense.amount / data.total_expenses * 100).toFixed(1);
+                            
+                            row.innerHTML = `
+                                <td>${expense.category}</td>
+                                <td>Rs. ${parseFloat(expense.amount).toFixed(2)}</td>
+                                <td>${percentage}%</td>
+                            `;
+                            
+                            categoryTableBody.appendChild(row);
+                        });
+                    }
+                }
+                
+                // If you have monthly data, update that chart too
+                if (data.monthly_data && window.monthlyTrendChart) {
+                    // Get the labels (months) and data (amounts)
+                    const months = Object.keys(data.monthly_data);
+                    const amounts = Object.values(data.monthly_data);
+                    
+                    // Update the chart
+                    window.monthlyTrendChart.data.labels = months;
+                    window.monthlyTrendChart.data.datasets[0].data = amounts;
+                    window.monthlyTrendChart.update();
+                }
+            } catch (error) {
+                console.error('Error updating dashboard with data:', error);
+                showError('Error updating dashboard: ' + error.message);
+            }
+        }
+
+        // Function to show error message - add null checks here too
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            const errorTextElement = document.getElementById('errorText');
+            
+            if (!errorElement || !errorTextElement) {
+                console.error('Error displaying error message: Error message elements not found in DOM');
+                alert(message); // Fallback to alert if error elements don't exist
+                return;
+            }
+            
+            errorTextElement.textContent = message;
+            errorElement.style.display = 'block';
+            
+            // Scroll to error message
+            errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 10000);
+        }
+
+        // Function to show progress modal
+        function showProgressModal(message) {
+            // Create modal for progress
+            const progressModal = document.createElement('div');
+            progressModal.id = 'progressModal';
+            progressModal.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; justify-content: center; align-items: center;">
+                    <div style="background: white; border-radius: 8px; padding: 20px; max-width: 400px; width: 90%; text-align: center;">
+                        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem; margin-bottom: 1rem;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h4 id="progressMessage" style="margin-bottom: 15px;">${message}</h4>
+                        <p style="color: #666;">Please wait while we fetch and process your data...</p>
+                    </div>
+                </div>
+            `;
+            
+            // Add to document
+            document.body.appendChild(progressModal);
+        }
+
+        // Function to hide progress modal
+        function hideProgressModal() {
+            try {
+                const progressModal = document.getElementById('progressModal');
+                if (progressModal) {
+                    // Add animation for smooth removal
+                    progressModal.style.transition = 'opacity 0.5s ease';
+                    progressModal.style.opacity = '0';
+                    
+                    // Remove after animation completes
+                    setTimeout(() => {
+                        if (progressModal && progressModal.parentNode) {
+                            progressModal.remove();
+                        }
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Error hiding progress modal:', error);
+                // Force remove if error occurs
+                const modal = document.getElementById('progressModal');
+                if (modal && modal.parentNode) {
+                    modal.remove();
+                }
+            }
+        }
+    </script>
+</body>
+</html> 

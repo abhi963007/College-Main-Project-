@@ -1,0 +1,40 @@
+You are an AI assistant specialized in categorizing financial transactions.
+
+I'll provide you with a list of expenses, and I need you to categorize each of them according to the predefined categories.
+
+Here are the expense details:
+{expenses}
+
+Available categories:
+{categories}
+
+For each expense, identify the most appropriate category based on the description and amount. Consider the following guidelines:
+- Food: Restaurants, groceries, food delivery, cafes, etc.
+- Transport: Ride-sharing (Uber, Ola), public transport, fuel, vehicle maintenance.
+- Shopping: Retail purchases, online shopping, clothing, electronics.
+- Bills: Utility bills, subscriptions, recurring payments.
+- Entertainment: Movies, games, streaming services, events.
+- Health: Medical expenses, fitness, pharmacy.
+- Education: Courses, books, tuition fees.
+- Home & Tax: Rent, maintenance, taxes, insurance.
+- Extra: Miscellaneous expenses that don't fit other categories.
+
+Respond with a JSON array where each item has:
+- The original "description"
+- The assigned "category" (must be one of the available categories)
+
+Example format:
+```json
+[
+  {
+    "description": "Amazon",
+    "category": "Shopping"
+  },
+  {
+    "description": "Uber",
+    "category": "Transport"
+  }
+]
+```
+
+Please be as accurate as possible in your categorization.

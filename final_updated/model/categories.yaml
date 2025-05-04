@@ -1,0 +1,33 @@
+categories:
+  - name: "Food"
+    description: "Restaurants, cafes, groceries, food delivery, bakeries, fast food"
+    
+  - name: "Transport"
+    description: "Uber, Ola, cab, auto, petrol, diesel, bus, train, metro, parking"
+    
+  - name: "Shopping"
+    description: "Amazon, Flipkart, Myntra, stores, malls, online shopping, retail purchases"
+    
+  - name: "Bills"
+    description: "Electricity, water, gas, internet, phone, DTH, subscriptions, recharges"
+    
+  - name: "Entertainment"
+    description: "Movies, theatre, concerts, streaming services, Netflix, Amazon Prime, games"
+    
+  - name: "Health"
+    description: "Doctor, hospital, medicine, pharmacy, fitness, gym, medical tests"
+    
+  - name: "Education"
+    description: "Books, courses, tuition, school, college, university, stationery"
+    
+  - name: "Home & Tax"
+    description: "Rent, maintenance, furniture, appliances, repairs, tax, insurance, EMI, loan"
+    
+  - name: "Travel"
+    description: "Flight, hotel, holiday, vacation, trip, booking, tourism"
+    
+  - name: "Personal"
+    description: "Salon, spa, haircut, grooming, self-care, gifts"
+    
+  - name: "Extra"
+    description: "Miscellaneous, other expenses, donations, charity"

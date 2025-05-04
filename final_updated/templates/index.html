@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: #35424a;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        footer {
+            background: #35424a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Transaction Tracker</h1>
+            <p>Your personal transaction monitoring system</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Welcome to your Transaction Tracker</h2>
+            <p>This application automatically fetches and processes transaction emails from your Gmail account using n8n automation.</p>
+            <p>You can view your transaction history, filter by date, and analyze your spending patterns.</p>
+            <a href="/transactions" class="btn">View Transactions</a>
+        </div>
+
+        <div class="card">
+            <h2>Features</h2>
+            <ul>
+                <li>Automatic email fetching from Gmail</li>
+                <li>Transaction details extraction</li>
+                <li>Date range filtering</li>
+                <li>Transaction history visualization</li>
+                <li>Data export capabilities</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Get Started</h2>
+            <p>To view your transaction history, click the button below:</p>
+            <a href="/transactions" class="btn">View Transactions</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Transaction Tracker | Powered by n8n and Flask</p>
+    </footer>
+</body>
+</html> 

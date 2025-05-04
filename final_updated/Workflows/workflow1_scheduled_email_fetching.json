@@ -1,0 +1,287 @@
+{
+  "name": "Scheduled Email Transaction Fetching",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "query": "from:(phonepe.com OR noreply@phonepe.com OR transactional@phonepe.com) newer_than:90d",
+        "includeAttachments": false,
+        "limit": 100,
+        "options": {
+          "returnFullEmail": true,
+          "useQuery": true
+        }
+      },
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [
+        460,
+        300
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "1QwObJJzed5Vhc17--0lB34ewNV9UVMBh3kfMxoGH5s8",
+          "mode": "list",
+          "cachedResultName": "Transaction Data"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "list",
+          "cachedResultName": "Sheet1"
+        },
+        "options": {
+          "returnAllMatches": true,
+          "dataProperty": "data"
+        }
+      },
+      "name": "Google Sheets Read",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        460,
+        460
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "// PhonePe transaction extractor - with improved subject handling\nconst transactions = [];\n\n// Log the total number of emails found\nconst totalEmails = $input.all().length;\nconsole.log(`Found ${totalEmails} emails in total`);\n\nif (totalEmails === 0) {\n  console.error('No emails found! Check Gmail credentials and search query');\n}\n\n// Pre-process function to clean up and ensure text\nconst cleanText = (text) => {\n  if (!text || typeof text !== 'string') return '';\n  return text.replace(/\\s+/g, ' ').trim();\n};\n\n// Safely extract text from email field\nconst safeExtract = (email, field) => {\n  if (!email) return '';\n  const value = email[field] || '';\n  if (typeof value === 'string') return value.trim();\n  return '';\n};\n\nfor (const item of $input.all()) {\n  try {\n    const email = item.json;\n    \n    if (!email) {\n      console.log('Empty email object, skipping');\n      continue;\n    }\n    \n    // Extract core fields with safe fallbacks\n    const subjectRaw = safeExtract(email, 'subject') || 'No Subject';\n    const subject = cleanText(subjectRaw);\n    const snippet = cleanText(safeExtract(email, 'snippet'));\n    const body = cleanText(safeExtract(email, 'body'));\n    const textHtml = cleanText(safeExtract(email, 'textHtml'));\n    const plainText = cleanText(safeExtract(email, 'plainText') || safeExtract(email, 'text'));\n    \n    // Debug email structure for better understanding\n    console.log(`\\nEmail Structure Keys: ${Object.keys(email).join(', ')}`);\n    console.log(`Subject (raw): ${subjectRaw}`);\n    console.log(`Subject (cleaned): ${subject}`);\n    console.log(`From: ${safeExtract(email, 'from')}`);\n    \n    // Combine potential content sources with preference order\n    const content = body || textHtml || plainText || snippet || subject;\n    \n    console.log(`Processing email #${item.index + 1}:\\nSubject: ${subject}\\nDate: ${safeExtract(email, 'date')}`);\n    \n    // Extract transaction date from email if available\n    let transactionDate = email.internalDate ? \n      new Date(parseInt(email.internalDate)).toISOString().split('T')[0] : \n      new Date().toISOString().split('T')[0];\n    \n    // Create basic transaction with default values\n    const transaction = {\n      transaction_id: `TX-${Date.now()}-${item.index}`,\n      amount: '0',\n      recipient: 'Unknown',\n      category: 'Other', // Default category\n      status: 'Completed',\n      date: transactionDate,\n      email_id: email.id || `ID-${Date.now()}-${item.index}`,\n      subject: subject || 'PhonePe Transaction', // Fallback subject\n      timestamp: new Date().toISOString()\n    };\n    \n    // Extract Transaction ID\n    const txIdPatterns = [\n      /Transaction ID\\s*:?\\s*([A-Z0-9]+)/i,\n      /Reference\\s*:?\\s*([A-Z0-9]+)/i,\n      /Order ID\\s*:?\\s*([A-Z0-9]+)/i,\n      /ID\\s*:?\\s*([A-Z0-9]{10,})/i\n    ];\n    \n    let foundTxId = false;\n    for (const pattern of txIdPatterns) {\n      const match = content.match(pattern);\n      if (match && match[1]) {\n        transaction.transaction_id = match[1];\n        foundTxId = true;\n        console.log(`Found transaction ID: ${transaction.transaction_id}`);\n        break;\n      }\n    }\n    \n    // Extract Amount\n    const amountPatterns = [\n      /(?:Rs|₹|INR)[.\\s]*(\\d+(?:,\\d+)*(?:\\.\\d+)?)/i,\n      /(?:amount|paid|sent)[:\\s]+(?:Rs|\u20B9|INR)?[\\s.]*(\\d+(?:,\\d+)*(?:\\.\\d+)?)/i,\n      /(?:Rs|₹|INR)[.\\s]*(\\d+(?:,\\d+)*(?:\\.\\d+)?)/i\n    ];\n    \n    let foundAmount = false;\n    for (const pattern of amountPatterns) {\n      // Try in content first, then subject\n      const match = content.match(pattern) || subject.match(pattern);\n      if (match && match[1]) {\n        transaction.amount = match[1].replace(/,/g, '');\n        foundAmount = true;\n        console.log(`Found amount: ${transaction.amount}`);\n        break;\n      }\n    }\n    \n    // Extract Recipient - More comprehensive patterns\n    const recipientPatterns = [\n      // Look for recipient name patterns\n      /(?:paid|sent|transferred)\\s+(?:to|for)\\s+([^,.\\n\\d]{3,}?)(?:[,.\\n]|via|using|$)/i,\n      /to\\s+([^,.\\n\\d]{3,}?)(?:[,.\\n]|via|using|$)/i,\n      /(?:recipient|beneficiary|merchant|payee)[:\\s]+([^,.\\n\\d]{3,}?)(?:[,.\\n]|$)/i,\n      /<b>([^<>]{3,}?)<\\/b>/i, // Bold text might contain recipient name\n      /(?:UPI ID: |VPA: )([\\w.-]+@[\\w.-]+)/i, // UPI ID pattern\n      /([\\w.-]+@[\\w.-]+)/ // Any UPI ID/email like pattern\n    ];\n    \n    let foundRecipient = false;\n    for (const pattern of recipientPatterns) {\n      const match = content.match(pattern) || subject.match(pattern);\n      if (match && match[1]) {\n        transaction.recipient = match[1].trim();\n        foundRecipient = true;\n        console.log(`Found recipient: ${transaction.recipient}`);\n        break;\n      }\n    }\n    \n    // Improved category detection with priority order\n    const determineCategoryFromContent = (text) => {\n      const lowerText = text.toLowerCase();\n      \n      // Start with more specific categories to avoid false positives\n      const categoryTests = [\n        // Key service providers and specific phrases\n        { pattern: /\\b(?:mtnl|bsnl|airtel|jio|vodafone|vi\\s+recharge|mobile\\s+recharge|recharge\\s+for|prepaid\\s+recharge)\\b/i, category: 'Mobile Recharge' },\n        { pattern: /\\b(?:dth|tata\\s+sky|dish\\s+tv|sun\\s+direct|airtel\\s+dth|tv\\s+recharge)\\b/i, category: 'TV & DTH' },\n        { pattern: /\\b(?:movie|cinema|pvr|inox|ticket|bookmyshow|event|concert|show)\\b/i, category: 'Entertainment' },\n        { pattern: /\\b(?:electricity|power|energy|bill\\s+payment|utility|water|gas|piped|broadband)\\b/i, category: 'Utility Bills' },\n        { pattern: /\\b(?:swiggy|zomato|food|restaurant|eat|dining|cafe|pizz|burger|hotel)\\b/i, category: 'Food & Dining' },\n        { pattern: /\\b(?:grocery|supermarket|vegetable|fruit|market|store|kirana|shop|big\\s+basket|grofers)\\b/i, category: 'Groceries' },\n        { pattern: /\\b(?:amazon|flipkart|myntra|ajio|shopping|purchase|order|buy|bought)\\b/i, category: 'Shopping' },\n        { pattern: /\\b(?:train|flight|bus|taxi|uber|ola|irctc|goibibo|makemytrip|travel|ticket)\\b/i, category: 'Travel' },\n        { pattern: /\\b(?:education|school|college|course|class|tuition|fee|tution)\\b/i, category: 'Education' },\n        { pattern: /\\b(?:hospital|doctor|medical|medicine|pharmacy|health|clinic|lab|test)\\b/i, category: 'Healthcare' },\n        { pattern: /\\b(?:rent|maintenance|society|apartment|flat|house|property|repair)\\b/i, category: 'Housing' },\n        { pattern: /\\b(?:insurance|premium|policy|cover|protection)\\b/i, category: 'Insurance' },\n        { pattern: /\\b(?:loan|emi|interest|repayment|principal|finance)\\b/i, category: 'Loans & EMI' },\n        { pattern: /\\b(?:invest|mutual\\s+fund|stock|share|gold|silver|nps|ppf)\\b/i, category: 'Investment' },\n        { pattern: /\\b(?:donation|charity|contribute|temple|church|mosque|religious)\\b/i, category: 'Donations' },\n        { pattern: /\\b(?:salary|income|payment\\s+received|received\\s+from|credit)\\b/i, category: 'Income' },\n        { pattern: /\\b(?:transfer|sent|payment|pay|money\\s+sent|send\\s+money|upi)\\b/i, category: 'Money Transfer' },\n        { pattern: /\\b(?:petrol|diesel|fuel|gas|charging|parking)\\b/i, category: 'Transport & Fuel' },\n        { pattern: /\\b(?:subscription|membership|renew|renewal|plan)\\b/i, category: 'Subscriptions' }\n      ];\n      \n      for (const {pattern, category} of categoryTests) {\n        if (pattern.test(lowerText)) {\n          return category;\n        }\n      }\n      \n      // No specific category found\n      return 'Other';\n    };\n    \n    // For better categorization, combine subject and first part of content\n    const categorySource = subject + ' ' + content.substring(0, 200);\n    transaction.category = determineCategoryFromContent(categorySource);\n    console.log(`Determined category: ${transaction.category}`);\n    \n    // Only add transactions that have at least an amount or a transaction ID\n    if (foundAmount || foundTxId) {\n      transactions.push(transaction);\n      console.log(`Added transaction with ID: ${transaction.transaction_id}, Amount: ${transaction.amount}, Category: ${transaction.category}`);\n    } else {\n      console.log('Skipping email - no transaction data found');\n    }\n    \n  } catch (error) {\n    console.error(`Error processing email: ${error.message}`);\n  }\n}\n\n// Add test transactions with different categories if no real transactions found\nif (transactions.length === 0) {\n  console.log('WARNING: No real transactions found, adding test transactions with various categories');\n  \n  const testCategories = [\n    'Mobile Recharge', 'Utility Bills', 'Shopping', 'Food & Dining', \n    'Travel', 'Money Transfer', 'Entertainment', 'Healthcare'\n  ];\n  \n  // Add one test transaction for each category\n  testCategories.forEach((category, index) => {\n    transactions.push({\n      transaction_id: `TEST${Date.now()}-${index}`,\n      amount: `${(index + 1) * 100}`,\n      recipient: `Test Recipient ${index + 1}`,\n      category: category,\n      status: 'Test',\n      date: new Date().toISOString().split('T')[0],\n      email_id: `test_email_${index}`,\n      subject: `Test ${category} Transaction`, // Descriptive test subject\n      timestamp: new Date().toISOString()\n    });\n    console.log(`Added test transaction for category: ${category}`);\n  });\n}\n\n// Return array of transaction objects\nconst output = [];\nfor (const tx of transactions) {\n  output.push({json: tx});\n}\n\nconsole.log(`Returning ${transactions.length} transactions with ${new Set(transactions.map(t => t.category)).size} different categories`);\nreturn output;"
+      },
+      "name": "Extract Transactions",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Filter out duplicate transactions based on existing records\nconst existingTransactions = $node[\"Google Sheets Read\"].json || [];\nconst newTransactions = [];\n\n// Create a set of transaction IDs that already exist in the spreadsheet\nconst existingIds = new Set();\nfor (const record of existingTransactions) {\n  if (record && record[\"Transaction ID\"]) {\n    existingIds.add(record[\"Transaction ID\"]);\n  }\n}\n\nconsole.log(`Found ${existingIds.size} existing transaction IDs in the spreadsheet`);\n\n// Filter input transactions to keep only those that don't already exist\nlet duplicatesFound = 0;\nfor (const item of $input.all()) {\n  if (item.json && item.json.transaction_id) {\n    if (!existingIds.has(item.json.transaction_id)) {\n      newTransactions.push(item);\n      console.log(`New transaction found: ${item.json.transaction_id}`);\n    } else {\n      duplicatesFound++;\n      console.log(`Skipping duplicate transaction: ${item.json.transaction_id}`);\n    }\n  } else {\n    console.log(`Skipping transaction with missing ID`);\n  }\n}\n\nconsole.log(`Filtered out ${duplicatesFound} duplicate transactions`);\nconsole.log(`Returning ${newTransactions.length} new unique transactions`);\n\n// If no new transactions, add a placeholder to avoid Google Sheets error\nif (newTransactions.length === 0) {\n  console.log('No new transactions to add - returning empty result');\n}\n\nreturn newTransactions;"
+      },
+      "name": "Filter Duplicates",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        680,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Transaction ID",
+              "value": "={{ $json.transaction_id }}"
+            },
+            {
+              "name": "Amount",
+              "value": "={{ $json.amount }}"
+            },
+            {
+              "name": "Recipient",
+              "value": "={{ $json.recipient }}"
+            },
+            {
+              "name": "Category",
+              "value": "={{ $json.category }}"
+            },
+            {
+              "name": "Status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "name": "Date",
+              "value": "={{ $json.date }}"
+            },
+            {
+              "name": "Email ID",
+              "value": "={{ $json.email_id }}"
+            },
+            {
+              "name": "Subject",
+              "value": "={{ $json.subject }}"
+            },
+            {
+              "name": "Timestamp",
+              "value": "={{ $json.timestamp }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Format Transaction Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.0,
+      "position": [
+        840,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1QwObJJzed5Vhc17--0lB34ewNV9UVMBh3kfMxoGH5s8",
+          "mode": "list",
+          "cachedResultName": "Transaction Data"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "list",
+          "cachedResultName": "Sheet1"
+        },
+        "columns": {
+          "mappingMode": "mapEach",
+          "value": {
+            "Transaction ID": "={{ $json.transaction_id }}",
+            "Amount": "={{ $json.amount }}",
+            "Recipient": "={{ $json.recipient }}",
+            "Category": "={{ $json.category }}",
+            "Status": "={{ $json.status }}",
+            "Date": "={{ $json.date }}",
+            "Email ID": "={{ $json.email_id }}",
+            "Subject": "={{ $json.subject }}",
+            "Timestamp": "={{ $json.timestamp }}"
+          }
+        },
+        "options": {
+          "valueInputMode": "RAW",
+          "valueRenderMode": "FORMATTED_VALUE"
+        }
+      },
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1000,
+        300
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Sheets Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Extract Transactions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Transactions": {
+      "main": [
+        [
+          {
+            "node": "Filter Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Format Transaction Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Transaction Data": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveManualExecutions": true,
+    "callerIds": []
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "transactions"
+    },
+    {
+      "name": "email"
+    }
+  ],
+  "versionId": "e59d2432-3ee7-4d1a-ae2f-e9a60e6b8ead"
+} 
